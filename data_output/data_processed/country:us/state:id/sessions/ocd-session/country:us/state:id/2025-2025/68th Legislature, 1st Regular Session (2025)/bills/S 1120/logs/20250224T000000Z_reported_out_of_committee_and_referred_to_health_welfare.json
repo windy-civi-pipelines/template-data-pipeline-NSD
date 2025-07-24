@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported out of Committee and referred to: Health & Welfare",
+    "date": "2025-02-24",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1120"
+}

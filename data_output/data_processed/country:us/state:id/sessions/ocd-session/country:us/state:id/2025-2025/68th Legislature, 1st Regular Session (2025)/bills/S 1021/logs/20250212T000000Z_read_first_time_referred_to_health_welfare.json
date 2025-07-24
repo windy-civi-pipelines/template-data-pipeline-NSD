@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read First Time, Referred to Health & Welfare",
+    "date": "2025-02-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-1",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1021"
+}

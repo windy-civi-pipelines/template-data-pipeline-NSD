@@ -1,0 +1,94 @@
+{
+  "legislative_session": "2025",
+  "identifier": "H 0210",
+  "title": "BOARDS OF COMMISSIONERS \u2013 Amends existing law to revise provisions regarding publication of proceedings.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "BOARDS",
+    "COMMISSIONS",
+    "COUNTIES",
+    "NOTICES"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "County boards, publications"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced, read first time, referred to JRA for Printing",
+      "date": "2025-02-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed and Referred to Local Government",
+      "date": "2025-02-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "LOCAL GOVERNMENT COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"lower\", \"name\": \"LOCAL GOVERNMENT COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0210.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0210SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0210/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-24T22:00:22+00:00",
+  "_id": "9899f1de-68d9-11f0-9cbe-dec15c9b601a"
+}

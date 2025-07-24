@@ -1,0 +1,97 @@
+{
+  "legislative_session": "2025",
+  "identifier": "H 0429",
+  "title": "LOCAL LAND USE PLANNING \u2013 Amends existing law to require a school district that receives mitigation fees to adopt a capacity plan and to use such moneys in accordance with such plan.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "CITIES",
+    "COUNTIES",
+    "EDUCATION",
+    "GOVERNMENT",
+    "LAND USE",
+    "LANDS",
+    "SCHOOLS AND SCHOOL DISTRICTS"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "School districts, mitigation fees"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced, read first time, referred to JRA for Printing",
+      "date": "2025-03-21",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed; Filed in the Office of the Chief Clerk",
+      "date": "2025-03-21",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "BRUCE",
+      "classification": "primary",
+      "entity_type": "person",
+      "primary": true,
+      "person_id": "~{\"name\": \"BRUCE\"}",
+      "organization_id": null
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0429.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0429SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0429/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-24T22:01:42+00:00",
+  "_id": "c80a3f8c-68d9-11f0-9cbe-dec15c9b601a"
+}

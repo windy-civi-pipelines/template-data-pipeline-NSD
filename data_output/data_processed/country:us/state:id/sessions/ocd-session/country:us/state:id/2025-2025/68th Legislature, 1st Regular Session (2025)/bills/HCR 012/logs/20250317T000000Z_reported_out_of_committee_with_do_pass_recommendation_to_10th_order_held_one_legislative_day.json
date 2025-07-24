@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported out of Committee with Do Pass Recommendation; to 10th order; held one legislative day",
+    "date": "2025-03-17",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 012"
+}

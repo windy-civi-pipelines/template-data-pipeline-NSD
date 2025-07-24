@@ -1,0 +1,93 @@
+{
+  "legislative_session": "2025",
+  "identifier": "H 0216",
+  "title": "VITAL STATISTICS \u2013 Amends existing law to revise provisions regarding the completion, correction, and amendment of certificates.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "HEALTH AND WELFARE DEPARTMENT",
+    "RECORDS",
+    "VITAL STATISTICS"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Amendment of certificates"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced, read first time, referred to JRA for Printing",
+      "date": "2025-02-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed and Referred to Health & Welfare",
+      "date": "2025-02-12",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "STATE AFFAIRS COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"lower\", \"name\": \"STATE AFFAIRS COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0216.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0216SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0216/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-24T22:00:24+00:00",
+  "_id": "99e4ed14-68d9-11f0-9cbe-dec15c9b601a"
+}
