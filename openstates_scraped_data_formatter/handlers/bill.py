@@ -8,7 +8,7 @@ from utils.timestamp_tracker import (
     to_dt_obj,
 )
 
-BILL_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps()).get("bills")
+BILL_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps().get("bills"))
 print(f"💬 (Bill handler) Current latest timestamp: {BILL_LATEST_TIMESTAMP}")
 
 
