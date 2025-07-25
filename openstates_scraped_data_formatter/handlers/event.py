@@ -8,7 +8,7 @@ from utils.timestamp_tracker import (
     to_dt_obj,
 )
 
-EVENT_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps().get("events"))
+EVENT_LATEST_TIMESTAMP = read_all_latest_timestamps().get("events")
 print(f"💬 (Event handler) Current latest timestamp: {EVENT_LATEST_TIMESTAMP}")
 
 
