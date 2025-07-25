@@ -1,12 +1,12 @@
+import json
 import click
 from handlers import bill, vote_event, event
 from utils.file_utils import record_error_file
 from utils.interactive import prompt_for_session_fix
+from datetime import datetime
 from utils import timestamp_tracker
 from utils.timestamp_tracker import (
-    read_latest_timestamp,
-    to_dt_obj,
-    write_latest_timestamp,
+    write_latest_timestamp_file,
     LATEST_TIMESTAMP_PATH,
 )
 
@@ -121,6 +121,9 @@ def process_and_save(
             DATA_NOT_PROCESSED_FOLDER,
             DATA_PROCESSED_FOLDER,
         )
+        if result not in ("bill", "event", "vote_event"):
+            print(f"⚠️ Unrecognized result from handler for {filename}: {result}")
+            continue
 
         if result == "bill":
             bill_count += 1
@@ -128,14 +131,8 @@ def process_and_save(
             event_count += 1
         elif result == "vote_event":
             vote_event_count += 1
-
-    if timestamp_tracker.LATEST_TIMESTAMP:
-        write_latest_timestamp(
-            timestamp_tracker.LATEST_TIMESTAMP.strftime("%Y%m%dT%H%M%S")
-        )
-    print(f"📝 Updated latest timestamp file: {timestamp_tracker.LATEST_TIMESTAMP}")
+    write_latest_timestamp_file()
     print("\n✅ File processing complete.")
-
     return {
         "bills": bill_count,
         "events": event_count,
