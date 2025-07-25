@@ -38,6 +38,33 @@ def update_latest_timestamp(category, current_dt, existing_dt):
     return existing_dt
 
 
+def is_newer_than_latest(content: dict, latest_timestamp_dt: datetime) -> bool:
+    """
+    Checks if the given content has a timestamp newer than the latest seen.
+
+    Looks in typical timestamp fields like "start_date" or "date".
+    Defaults to True if no timestamp can be found or parsed.
+
+    Args:
+        content (dict): The JSON-loaded content of the file.
+        latest_timestamp_dt (datetime): Latest datetime seen for this category.
+
+    Returns:
+        bool: True if content is newer (or undated), False if outdated.
+    """
+    raw_ts = content.get("start_date") or content.get("date")
+    if not raw_ts:
+        return True  # Allow through if no date field
+
+    try:
+        # Strip timezone Z if present
+        raw_ts = raw_ts.rstrip("Z")
+        current_dt = datetime.strptime(raw_ts, "%Y-%m-%dT%H:%M:%S")
+        return current_dt > latest_timestamp_dt
+    except Exception:
+        return True  # If parsing fails, allow through
+
+
 def write_latest_timestamp_file():
     try:
         output = {}
