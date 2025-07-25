@@ -32,7 +32,10 @@ def to_dt_obj(ts_str):
         return ts_str
     try:
         ts_str = ts_str.rstrip("Z")
-        return datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S")
+        if "-" in ts_str:
+            return datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S")
+        else:
+            return datetime.strptime(ts_str, "%Y%m%dT%H%M%S")
     except Exception as e:
         print(f"❌ Failed to parse timestamp: {ts_str} ({e})")
         return None
