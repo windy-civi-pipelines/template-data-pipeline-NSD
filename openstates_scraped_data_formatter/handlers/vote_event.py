@@ -7,7 +7,7 @@ from utils.timestamp_tracker import (
     to_dt_obj,
 )
 
-VOTE_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps("vote_events"))
+VOTE_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps()).get("vote_events")
 print(f"💬 (Vote_event handler) Current latest timestamp: {VOTE_LATEST_TIMESTAMP}")
 
 
