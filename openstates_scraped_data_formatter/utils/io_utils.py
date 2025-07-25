@@ -6,8 +6,6 @@ import json
 from utils.file_utils import record_error_file
 from utils.timestamp_tracker import (
     is_newer_than_latest,
-    to_dt_obj,
-    read_latest_timestamp,
 )
 
 
