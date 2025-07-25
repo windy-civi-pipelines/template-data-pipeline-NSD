@@ -1,43 +1,65 @@
 import os
 import json
 from utils.file_utils import record_error_file
+import os
+import json
+from utils.file_utils import record_error_file
+from utils.timestamp_tracker import (
+    is_newer_than_latest,
+    to_dt_obj,
+    read_latest_timestamp,
+)
+
+LATEST_BILL_TS = to_dt_obj(read_latest_timestamp("bills"))
+LATEST_VOTE_TS = to_dt_obj(read_latest_timestamp("vote_events"))
+LATEST_EVENT_TS = to_dt_obj(read_latest_timestamp("events"))
 
 
 def load_json_files(input_folder, EVENT_ARCHIVE_FOLDER, ERROR_FOLDER):
     all_data = []
     for filename in os.listdir(input_folder):
-        if filename.endswith(".json"):
-            filepath = os.path.join(input_folder, filename)
-            try:
-                with open(filepath, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    all_data.append((filename, data))
+        if not filename.endswith(".json"):
+            continue
 
-                    # Archive all event_*.json files to a centralized folder
-                    # These files often lack a legislative_session and are skipped by the main processor
-                    # This preserves raw event data for post-processing, analysis,
-                    # or bill association steps later in the pipeline
-                    if filename.startswith("event_"):
-                        EVENT_ARCHIVE_FOLDER.mkdir(parents=True, exist_ok=True)
+        filepath = os.path.join(input_folder, filename)
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
 
-                        # If file exists in missing_session, remove it before archiving
-                        missing_event_file = ERROR_FOLDER / "missing_session" / filename
-                        if missing_event_file.exists():
-                            missing_event_file.unlink()
+                # Determine type for timestamp comparison
+                if filename.startswith("bill"):
+                    if not is_newer_than_latest(data, LATEST_BILL_TS):
+                        continue
+                elif filename.startswith("vote_event"):
+                    if not is_newer_than_latest(data, LATEST_VOTE_TS):
+                        continue
+                elif filename.startswith("event"):
+                    if not is_newer_than_latest(data, LATEST_EVENT_TS):
+                        continue
 
-                        archive_path = EVENT_ARCHIVE_FOLDER / filename
-                        with open(archive_path, "w", encoding="utf-8") as archive_f:
-                            json.dump(data, archive_f, indent=2)
+                all_data.append((filename, data))
 
-            except json.JSONDecodeError:
-                print(f"❌ Skipping {filename}: could not parse JSON")
-                with open(filepath, "r", encoding="utf-8") as f:
-                    raw_text = f.read()
-                record_error_file(
-                    ERROR_FOLDER,
-                    "invalid_json",
-                    filename,
-                    {"error": "Could not parse JSON", "raw": raw_text},
-                    original_filename=filename,
-                )
+                # Archive event_*.json files
+                if filename.startswith("event_"):
+                    EVENT_ARCHIVE_FOLDER.mkdir(parents=True, exist_ok=True)
+                    missing_event_file = ERROR_FOLDER / "missing_session" / filename
+                    if missing_event_file.exists():
+                        missing_event_file.unlink()
+
+                    archive_path = EVENT_ARCHIVE_FOLDER / filename
+                    with open(archive_path, "w", encoding="utf-8") as archive_f:
+                        json.dump(data, archive_f, indent=2)
+
+        except json.JSONDecodeError:
+            print(f"❌ Skipping {filename}: could not parse JSON")
+            with open(filepath, "r", encoding="utf-8") as f:
+                raw_text = f.read()
+            record_error_file(
+                ERROR_FOLDER,
+                "invalid_json",
+                filename,
+                {"error": "Could not parse JSON", "raw": raw_text},
+                original_filename=filename,
+            )
+
     return all_data
