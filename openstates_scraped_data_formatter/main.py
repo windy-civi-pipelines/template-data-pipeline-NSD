@@ -52,6 +52,7 @@ def main(
         "vote_events": to_dt_obj(raw_ts.get("vote_events")),
         "events": to_dt_obj(raw_ts.get("events")),
     }
+    print(f"💬 Current latest TIMESTAMPS: {latest_timestamps_dt}")
 
     # 1. Ensure output folders exist
     DATA_PROCESSED_FOLDER.mkdir(parents=True, exist_ok=True)
