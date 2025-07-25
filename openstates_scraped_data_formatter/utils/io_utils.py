@@ -32,12 +32,12 @@ def load_json_files(
                         data, bills_ts, "bills", DATA_NOT_PROCESSED_FOLDER
                     ):
                         continue
-                elif filename.startswith("vote_events"):
+                elif filename.startswith("vote_event"):
                     if not is_newer_than_latest(
                         data, vote_events_ts, "vote_events", DATA_NOT_PROCESSED_FOLDER
                     ):
                         continue
-                elif filename.startswith("events"):
+                elif filename.startswith("event"):
                     if not is_newer_than_latest(
                         data, events_ts, "events", DATA_NOT_PROCESSED_FOLDER
                     ):
