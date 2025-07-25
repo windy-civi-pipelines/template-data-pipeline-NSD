@@ -10,12 +10,14 @@ from utils.timestamp_tracker import (
     read_latest_timestamp,
 )
 
-LATEST_BILL_TS = to_dt_obj(read_latest_timestamp("bills"))
-LATEST_VOTE_TS = to_dt_obj(read_latest_timestamp("vote_events"))
-LATEST_EVENT_TS = to_dt_obj(read_latest_timestamp("events"))
 
+def load_json_files(
+    input_folder, EVENT_ARCHIVE_FOLDER, ERROR_FOLDER, latest_timestamps_dt
+):
+    bills_ts = latest_timestamps_dt["bills"]
+    vote_events_ts = latest_timestamps_dt["vote_events"]
+    events_ts = latest_timestamps_dt["events"]
 
-def load_json_files(input_folder, EVENT_ARCHIVE_FOLDER, ERROR_FOLDER):
     all_data = []
     for filename in os.listdir(input_folder):
         if not filename.endswith(".json"):
@@ -28,13 +30,13 @@ def load_json_files(input_folder, EVENT_ARCHIVE_FOLDER, ERROR_FOLDER):
 
                 # Determine type for timestamp comparison
                 if filename.startswith("bill"):
-                    if not is_newer_than_latest(data, LATEST_BILL_TS):
+                    if not is_newer_than_latest(data, bills_ts):
                         continue
                 elif filename.startswith("vote_event"):
-                    if not is_newer_than_latest(data, LATEST_VOTE_TS):
+                    if not is_newer_than_latest(data, vote_events_ts):
                         continue
                 elif filename.startswith("event"):
-                    if not is_newer_than_latest(data, LATEST_EVENT_TS):
+                    if not is_newer_than_latest(data, events_ts):
                         continue
 
                 all_data.append((filename, data))
