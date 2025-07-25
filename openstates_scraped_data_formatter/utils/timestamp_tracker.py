@@ -6,7 +6,7 @@ LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
 )
 
-{
+latest_timestamps = {
     "bills": "19000101T000000",
     "vote_events": "19000101T000000",
     "events": "19000101T000000",
