@@ -7,7 +7,6 @@ from utils.process_utils import process_and_save
 from postprocessors.event_bill_linker import link_events_to_bills_pipeline
 from utils.timestamp_tracker import read_all_latest_timestamps, to_dt_obj
 
-# Define state abbreviation and paths
 BASE_FOLDER = Path(__file__).parent.parent
 SESSION_MAPPING = {}
 
@@ -47,13 +46,12 @@ def main(
     SESSION_LOG_PATH = DATA_OUTPUT / "new_sessions_added.txt"
 
     raw_ts = read_all_latest_timestamps()
-    print(f"💬 Raw latest timestamps: {raw_ts}")
     latest_timestamps_dt = {
         "bills": to_dt_obj(raw_ts.get("bills")),
         "vote_events": to_dt_obj(raw_ts.get("vote_events")),
         "events": to_dt_obj(raw_ts.get("events")),
     }
-    print(f"💬 Current latest TIMESTAMPS: {latest_timestamps_dt}")
+    print(f"💬 Latest timestamps: {latest_timestamps_dt}")
 
     # 1. Ensure output folders exist
     DATA_PROCESSED_FOLDER.mkdir(parents=True, exist_ok=True)
