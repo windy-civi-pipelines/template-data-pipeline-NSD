@@ -2,6 +2,14 @@ from pathlib import Path
 import json
 import re
 from utils.file_utils import record_error_file, format_timestamp
+from utils.timestamp_tracker import (
+    update_latest_timestamp,
+    read_latest_timestamp,
+    to_dt_obj,
+)
+
+EVENT_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("events"))
+print(f"💬 (Event handler) Current latest timestamp: {EVENT_LATEST_TIMESTAMP}")
 
 
 def clean_event_name(name: str) -> str:
@@ -49,6 +57,14 @@ def handle_event(
             return False
 
     timestamp = format_timestamp(start_date)
+    if timestamp == "unknown":
+        print(f"⚠️ Event {event_id} has unrecognized timestamp format: {timestamp}")
+    if timestamp and timestamp != "unknown":
+        current_dt = to_dt_obj(timestamp)
+        EVENT_LATEST_TIMESTAMP = update_latest_timestamp(
+            "events", current_dt, EVENT_LATEST_TIMESTAMP
+        )
+
     event_name = content.get("name", "event")
     short_name = clean_event_name(event_name)
 
