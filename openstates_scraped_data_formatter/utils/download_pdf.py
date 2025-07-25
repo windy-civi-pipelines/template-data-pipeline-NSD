@@ -1,8 +1,12 @@
+from pathlib import Path
 from urllib import request
+from typing import Any
 
 
-def download_bill_pdf(content, save_path, bill_identifier):
-    versions = content.get("versions", [])
+def download_bill_pdf(
+    data: dict[str, Any], save_path: Path, bill_identifier: str
+) -> None:
+    versions = data.get("versions", [])
     if not versions:
         print("⚠️ No versions found for bill")
         return
@@ -20,7 +24,7 @@ def download_bill_pdf(content, save_path, bill_identifier):
                         filename = f"{bill_identifier}.pdf"
                         file_path = files_dir / filename
                         with open(file_path, "wb") as f:
-                            f.write(response.content)
+                            f.write(response.data)
                         print(f"📄 Downloaded PDF: {filename}")
                     else:
                         print(

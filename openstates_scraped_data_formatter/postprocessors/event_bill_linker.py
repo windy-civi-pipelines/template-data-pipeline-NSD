@@ -16,7 +16,7 @@ def link_events_to_bills_pipeline(
     DATA_NOT_PROCESSED_FOLDER: Path,
     BILL_TO_SESSION_FILE: Path,
     SESSION_MAPPING_FILE: Path,
-):
+) -> None:
     """
     Main pipeline for linking events to bills and saving them in the correct folder.
     """
