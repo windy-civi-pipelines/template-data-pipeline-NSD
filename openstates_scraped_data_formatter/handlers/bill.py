@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+from typing import Any
 from utils.file_utils import format_timestamp, record_error_file, write_action_logs
 from utils.download_pdf import download_bill_pdf
 from utils.timestamp_tracker import (
@@ -13,13 +14,13 @@ print(f"💬 (Bill handler) Current latest timestamp: {BILL_LATEST_TIMESTAMP}")
 
 
 def handle_bill(
-    STATE_ABBR,
-    content,
-    session_name,
-    date_folder,
-    DATA_PROCESSED_FOLDER,
-    DATA_NOT_PROCESSED_FOLDER,
-    filename,
+    STATE_ABBR: str,
+    data: dict[str, Any],
+    session_name: str,
+    date_folder: str,
+    DATA_PROCESSED_FOLDER: Path,
+    DATA_NOT_PROCESSED_FOLDER: Path,
+    filename: str,
 ):
     """
     Handles a bill JSON file by saving:
@@ -39,14 +40,14 @@ def handle_bill(
     DOWNLOAD_PDFS = False
     global BILL_LATEST_TIMESTAMP
 
-    bill_identifier = content.get("identifier")
+    bill_identifier = data.get("identifier")
     if not bill_identifier:
         print("⚠️ Warning: Bill missing identifier")
         record_error_file(
             DATA_NOT_PROCESSED_FOLDER,
             "from_handle_bill_missing_identifier",
             filename,
-            content,
+            data,
             original_filename=filename,
         )
         return False
@@ -66,7 +67,7 @@ def handle_bill(
     (save_path / "logs").mkdir(parents=True, exist_ok=True)
     (save_path / "files").mkdir(parents=True, exist_ok=True)
 
-    actions = content.get("actions", [])
+    actions = data.get("actions", [])
     if actions:
         dates = [a.get("date") for a in actions if a.get("date")]
         timestamp = format_timestamp(sorted(dates)[0]) if dates else None
@@ -87,7 +88,7 @@ def handle_bill(
     full_filename = f"{timestamp}_entire_bill.json"
     output_file = save_path.joinpath("logs", full_filename)
     with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(content, f, indent=2)
+        json.dump(data, f, indent=2)
 
     # Save each action as a separate file
     if actions:
@@ -95,6 +96,6 @@ def handle_bill(
 
     # Download associated bill PDFs: if enabled
     if DOWNLOAD_PDFS:
-        download_bill_pdf(content, save_path, bill_identifier)
+        download_bill_pdf(data, save_path, bill_identifier)
 
     return True
