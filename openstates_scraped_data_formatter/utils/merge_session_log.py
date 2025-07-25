@@ -5,12 +5,12 @@ import re
 # CONFIGURATION (generic)
 # -------------------------
 BASE_FOLDER = Path(__file__).resolve().parent
-STATE_FOLDER = BASE_FOLDER.parent 
+STATE_FOLDER = BASE_FOLDER.parent
 SESSION_LOG_PATH = STATE_FOLDER / "new_sessions_added.txt"
 SESSION_INDEX_PATH = STATE_FOLDER / "session_index.py"
 
 
-def load_logged_sessions(log_path):
+def load_logged_sessions(log_path: Path) -> dict[str, str]:
     mapping = {}
     if not log_path.exists():
         return mapping
