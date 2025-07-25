@@ -28,13 +28,13 @@ def load_json_files(
 
                 # Determine type for timestamp comparison
                 if filename.startswith("bill"):
-                    if not is_newer_than_latest(data, bills_ts):
+                    if not is_newer_than_latest(data, bills_ts, "bill"):
                         continue
                 elif filename.startswith("vote_event"):
-                    if not is_newer_than_latest(data, vote_events_ts):
+                    if not is_newer_than_latest(data, vote_events_ts, "vote_event"):
                         continue
                 elif filename.startswith("event"):
-                    if not is_newer_than_latest(data, events_ts):
+                    if not is_newer_than_latest(data, events_ts, "event"):
                         continue
 
                 all_data.append((filename, data))
