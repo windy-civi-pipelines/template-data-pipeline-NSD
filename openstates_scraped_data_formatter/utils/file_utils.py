@@ -108,10 +108,30 @@ def record_error_file(
 ):
     folder = Path(error_folder) / category
     folder.mkdir(parents=True, exist_ok=True)
+
+    # 🔍 Step 1: Get existing names in that folder
+    existing_names = set()
+    for f in folder.glob("*.json"):
+        try:
+            with open(f, "r", encoding="utf-8") as existing_file:
+                existing_data = json.load(existing_file)
+                name = existing_data.get("name")
+                if name:
+                    existing_names.add(name)
+        except Exception:
+            continue  # skip unreadable files just in case
+
+    # 🛑 Step 2: Skip if this "name" already exists
+    if content.get("name") in existing_names:
+        print(f"⚠️ Skipping duplicate org: {content['name']}")
+        return
+
     if original_filename:
         content["_original_filename"] = original_filename
+
     with open(folder / filename, "w", encoding="utf-8") as f:
         json.dump(content, f, indent=2)
+    print(f"📄 Saved error file to: {folder / filename}")
 
 
 def slugify(text, max_length=100):
