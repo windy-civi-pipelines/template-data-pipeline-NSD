@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced; read first time at length",
+    "date": "2025-01-06",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 001"
+}

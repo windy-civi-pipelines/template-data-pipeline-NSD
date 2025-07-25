@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported Printed; referred to Education",
+    "date": "2025-02-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1045"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Bill Previously Held at Desk, Referred to Judiciary, Rules & Administration",
+    "date": "2025-02-04",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HR 003"
+}

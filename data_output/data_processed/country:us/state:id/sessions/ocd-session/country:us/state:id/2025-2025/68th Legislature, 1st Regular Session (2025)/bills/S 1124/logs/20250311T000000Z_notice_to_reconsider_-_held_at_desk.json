@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Notice to reconsider - Held at Desk",
+    "date": "2025-03-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1124"
+}

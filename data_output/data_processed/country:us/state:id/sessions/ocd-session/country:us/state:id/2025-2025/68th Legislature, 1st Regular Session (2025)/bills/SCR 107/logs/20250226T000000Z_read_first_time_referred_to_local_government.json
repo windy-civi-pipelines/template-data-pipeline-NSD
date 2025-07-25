@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read First Time, Referred to Local Government",
+    "date": "2025-02-26",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-1",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SCR 107"
+}

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Received from Senate; Signed by Speaker; Returned to Senate",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "SCR 113"
+}

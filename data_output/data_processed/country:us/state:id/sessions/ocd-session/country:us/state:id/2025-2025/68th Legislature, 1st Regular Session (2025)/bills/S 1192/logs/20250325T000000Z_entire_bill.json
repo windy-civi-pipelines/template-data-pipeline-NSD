@@ -1,0 +1,169 @@
+{
+  "legislative_session": "2025",
+  "identifier": "S 1192",
+  "title": "APPROPRIATIONS \u2013 STATE LIQUOR DIVISION \u2013 Relates to the appropriation to the State Liquor Division for fiscal year 2026.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "APPROPRIATIONS",
+    "LIQUOR"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Approp, liquor div, add\u2019l"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced; read first time; referred to JR for Printing",
+      "date": "2025-03-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed; referred to Finance",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Reported out of Committee with Do Pass Recommendation; Filed for second reading",
+      "date": "2025-03-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read second time; filed for Third Reading",
+      "date": "2025-03-27",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read third time in full \u2013 PASSED - 21-13-1AYES \u2013 Adams, Anthon, Bernt, Bjerke, Blaylock, Burtenshaw, Carlson, Cook, Den Hartog, Galloway, Guthrie, Lenney, Lent, Ruchti, Semmelroth, Taylor, VanOrden, Ward-Engelking, Wintrow, Woller(Rabe), WoodwardNAYS \u2013 Foreman, Grow, Harris, Hart, Kohl, Lakey, Nichols, Okuniewicz, Ricks, Shippy, Toews, Zito, ZuiderveldAbsent and excused \u2013 KeyserFloor Sponsor - CarlsonTitle apvd - to House",
+      "date": "2025-03-28",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Received from the Senate, Filed for First Reading",
+      "date": "2025-03-31",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Read First Time, Filed for Second Reading",
+      "date": "2025-03-31",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-1"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read second time; Filed for Third Reading",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Rules Suspended: Ayes 69 Nays 0 Abs/Excd 1, read in full as required \u2013 FAILED - 34-35-1AYES \u2013 Achilles, Barbieri, Berch, Cannon, Church, Clow, Cornilles, Egbert, Fuhriman, Furniss, Galaviz, Gannon, Green, Handy, Healey, Manwaring, Mathias, Mendive, Miller, Monks, Nelsen, Petzke, Pickett, Pohanka, Raybould, Raymond, Rubel, Sauter, Shepherd, Shirts, Tanner(14), Weber, Wheeler, Mr. SpeakerNAYS \u2013 Alfieri, Andrus, Beiswenger, Boyle, Bruce, Burgoyne, Cayler, Cheatum, Crane(12), Crane(13), Dygert, Ehardt, Ehlers, Erickson, Garner, Harris, Hawkins, Hill(Brown), Holtzclaw, Hostetler, Leavitt, Marmon, McCann, Mickelsen, Mitchell, Palmer, Price, Rasor, Redman, Scott, Skaug, Tanner(13), Thompson, Vander Woude(Harris), WisniewskiAbsent \u2013 HormanFloor Sponsor - Tanner(14)Order ret\u2019d to Senate",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Returned from House Failed; to Secretary of Senate",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "FINANCE COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"upper\", \"name\": \"FINANCE COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1192.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1192SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Legislative Co-sponsors",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1192LegCo.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/S1192/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-25T23:26:09+00:00",
+  "_id": "beb6a3be-69ae-11f0-b05f-f6f7a815e443"
+}

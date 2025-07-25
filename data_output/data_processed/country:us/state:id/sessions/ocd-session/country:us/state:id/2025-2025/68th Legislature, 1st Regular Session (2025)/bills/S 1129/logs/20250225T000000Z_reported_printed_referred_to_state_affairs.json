@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported Printed; referred to State Affairs",
+    "date": "2025-02-25",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1129"
+}

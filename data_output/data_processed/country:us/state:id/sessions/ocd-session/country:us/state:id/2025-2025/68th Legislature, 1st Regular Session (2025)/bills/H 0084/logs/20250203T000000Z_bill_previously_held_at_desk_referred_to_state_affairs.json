@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Bill Previously Held at Desk, Referred to State Affairs",
+    "date": "2025-02-03",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0084"
+}

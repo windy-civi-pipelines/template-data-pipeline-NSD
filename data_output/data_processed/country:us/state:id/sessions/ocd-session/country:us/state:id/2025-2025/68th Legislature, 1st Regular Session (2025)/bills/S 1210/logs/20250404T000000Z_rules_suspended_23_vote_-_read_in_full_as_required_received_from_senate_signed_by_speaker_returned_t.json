@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Rules Suspended (2/3 Vote - Read in full as required) \u2013 Received from Senate; Signed by Speaker; Returned to Senate",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1210"
+}

@@ -1,0 +1,257 @@
+{
+  "legislative_session": "2025",
+  "identifier": "H 0021",
+  "title": "MOTOR VEHICLES \u2013 Amends existing law to revise provisions regarding temporary license plates and certain exempt vehicle license plates.",
+  "from_organization": "~{\"classification\": \"lower\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "FEES",
+    "GOVERNMENT",
+    "LICENSE PLATES",
+    "MOTOR VEHICLES",
+    "TRANSPORTATION"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Vehicles, registration, plates"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced, read first time, referred to JRA for Printing",
+      "date": "2025-01-17",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed and Referred to Transportation & Defense",
+      "date": "2025-01-20",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Reported out of Committee with Do Pass Recommendation, Filed for Second Reading",
+      "date": "2025-02-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read second time; Filed for Third Reading",
+      "date": "2025-02-14",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "U.C. to hold place on third reading calendar one legislative day",
+      "date": "2025-02-17",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "U.C. to hold place on third reading calendar one legislative day",
+      "date": "2025-02-18",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "U.C. to hold place on third reading calendar one legislative day",
+      "date": "2025-02-19",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Read Third Time in Full \u2013 PASSED - 40-25-5AYES \u2013 Achilles, Andrus, Berch, Boyle, Cannon, Cheatum, Church, Clow, Cornilles, Dygert, Egbert, Erickson, Fuhriman, Furniss, Handy, Healey, Hill, Holtzclaw, Horman, Mathias, McCann, Mickelsen, Miller, Mitchell, Monks, Nelsen, Palmer, Petzke, Pickett, Pohanka, Raybould, Raymond, Rubel, Sauter, Shepherd, Shirts, Vander Woude, Weber, Wheeler, Mr. SpeakerNAYS \u2013 Alfieri, Barbieri, Beiswenger, Bruce, Burgoyne, Cayler, Crane(12), Crane(13), Ehardt, Garner, Harris, Hawkins, Hostetler, Leavitt, Marmon, Mendive, Price, Rasor, Redman, Scott, Skaug, Tanner(13), Tanner(14), Thompson, WisniewskiAbsent \u2013 Ehlers, Galaviz, Gannon, Green, ManwaringFloor Sponsor - HandyTitle apvd - to Senate",
+      "date": "2025-02-20",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage",
+        "reading-3"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Received from the House passed; filed for first reading",
+      "date": "2025-02-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Introduced, read first time; referred to: Transportation",
+      "date": "2025-02-21",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported out of Committee with Do Pass Recommendation; Filed for second reading",
+      "date": "2025-02-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read second time; filed for Third Reading",
+      "date": "2025-02-26",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read third time in full \u2013 PASSED - 26-7-2AYES \u2013 Adams, Anthon, Bernt, Bjerke, Blaylock, Burtenshaw, Cook, Den Hartog, Foreman, Galloway, Grow, Guthrie, Harris, Lakey, Lent, Mathews(Rabe), Nichols, Okuniewicz, Ricks, Semmelroth, Shippy, Toews, VanOrden, Ward-Engelking, Wintrow, WoodwardNAYS \u2013 Carlson, Hart, Keyser, Kohl, Lenney, Zito, ZuiderveldAbsent and excused \u2013 Ruchti, TaylorFloor Sponsor - BurtenshawTitle apvd - to House",
+      "date": "2025-03-05",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Returned from Senate Passed; to JRA for Enrolling",
+      "date": "2025-03-06",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "enrolled"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Enrolled; Signed by Speaker; Transmitted to Senate",
+      "date": "2025-03-07",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Received from the House enrolled/signed by Speaker",
+      "date": "2025-03-10",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Signed by President; returned to House",
+      "date": "2025-03-10",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Returned Signed by the President; Ordered Transmitted to Governor",
+      "date": "2025-03-10",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Delivered to Governor at 8:10 a.m. on March 11, 2025",
+      "date": "2025-03-11",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Signed by Governor on March 11, 2025    Session Law Chapter 22    Effective: 07/01/2025",
+      "date": "2025-03-13",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "TRANSPORTATION AND DEFENSE COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"lower\", \"name\": \"TRANSPORTATION AND DEFENSE COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0021.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0021SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [
+    {
+      "publication": "Idaho Session Laws 2025",
+      "citation": "Chapter 22",
+      "citation_type": "chapter",
+      "effective": "2025-07-01",
+      "expires": null,
+      "url": null
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0021/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-25T23:26:10+00:00",
+  "_id": "bf6867fc-69ae-11f0-b05f-f6f7a815e443"
+}

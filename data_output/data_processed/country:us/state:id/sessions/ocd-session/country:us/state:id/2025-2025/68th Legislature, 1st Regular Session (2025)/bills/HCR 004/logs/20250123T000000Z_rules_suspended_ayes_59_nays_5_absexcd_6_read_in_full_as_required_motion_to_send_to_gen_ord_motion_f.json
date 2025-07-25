@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules Suspended: Ayes 59 Nays 5 Abs/Excd 6, read in full as required \u2013 Motion to send to Gen Ord, motion failed",
+    "date": "2025-01-23",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "HCR 004"
+}

@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read in full \u2013 ADOPTED \u2013 voice voteFloor Sponsor \u2013 ToewsTitle apvd \u2013 to House",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 018"
+}
