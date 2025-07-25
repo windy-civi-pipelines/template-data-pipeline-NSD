@@ -85,5 +85,5 @@ def handle_vote_event(
         print(f"📝 Created placeholder for missing bill {referenced_bill_id}")
 
     # Save the full vote_event log
-    write_vote_event_log(data, referenced_bill_id, save_path / "logs")
+    write_vote_event_log(data, save_path / "logs")
     return True
