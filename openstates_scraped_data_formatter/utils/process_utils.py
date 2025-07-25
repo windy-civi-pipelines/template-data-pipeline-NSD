@@ -3,8 +3,6 @@ import click
 from handlers import bill, vote_event, event
 from utils.file_utils import record_error_file
 from utils.interactive import prompt_for_session_fix
-from datetime import datetime
-from utils import timestamp_tracker
 from utils.timestamp_tracker import (
     write_latest_timestamp_file,
     LATEST_TIMESTAMP_PATH,
