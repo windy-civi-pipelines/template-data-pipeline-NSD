@@ -10,7 +10,7 @@ from utils.timestamp_tracker import (
 
 
 def load_json_files(
-    input_folder, EVENT_ARCHIVE_FOLDER, ERROR_FOLDER, latest_timestamps_dt
+    input_folder, EVENT_ARCHIVE_FOLDER, DATA_NOT_PROCESSED_FOLDER, latest_timestamps_dt
 ):
     bills_ts = latest_timestamps_dt["bills"]
     vote_events_ts = latest_timestamps_dt["vote_events"]
@@ -28,13 +28,19 @@ def load_json_files(
 
                 # Determine type for timestamp comparison
                 if filename.startswith("bill"):
-                    if not is_newer_than_latest(data, bills_ts, "bill"):
+                    if not is_newer_than_latest(
+                        data, bills_ts, "bills", DATA_NOT_PROCESSED_FOLDER
+                    ):
                         continue
-                elif filename.startswith("vote_event"):
-                    if not is_newer_than_latest(data, vote_events_ts, "vote_event"):
+                elif filename.startswith("vote_events"):
+                    if not is_newer_than_latest(
+                        data, vote_events_ts, "vote_events", DATA_NOT_PROCESSED_FOLDER
+                    ):
                         continue
-                elif filename.startswith("event"):
-                    if not is_newer_than_latest(data, events_ts, "event"):
+                elif filename.startswith("events"):
+                    if not is_newer_than_latest(
+                        data, events_ts, "events", DATA_NOT_PROCESSED_FOLDER
+                    ):
                         continue
 
                 all_data.append((filename, data))
@@ -42,7 +48,9 @@ def load_json_files(
                 # Archive event_*.json files
                 if filename.startswith("event_"):
                     EVENT_ARCHIVE_FOLDER.mkdir(parents=True, exist_ok=True)
-                    missing_event_file = ERROR_FOLDER / "missing_session" / filename
+                    missing_event_file = (
+                        DATA_NOT_PROCESSED_FOLDER / "missing_session" / filename
+                    )
                     if missing_event_file.exists():
                         missing_event_file.unlink()
 
@@ -55,7 +63,7 @@ def load_json_files(
             with open(filepath, "r", encoding="utf-8") as f:
                 raw_text = f.read()
             record_error_file(
-                ERROR_FOLDER,
+                DATA_NOT_PROCESSED_FOLDER,
                 "invalid_json",
                 filename,
                 {"error": "Could not parse JSON", "raw": raw_text},
