@@ -28,9 +28,9 @@ def read_all_latest_timestamps():
 
 
 def to_dt_obj(ts_str):
+    if isinstance(ts_str, datetime):
+        return ts_str
     try:
-        if not isinstance(ts_str, str):
-            raise ValueError(f"Expected string, got {type(ts_str)}")
         ts_str = ts_str.rstrip("Z")
         return datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S")
     except Exception as e:
