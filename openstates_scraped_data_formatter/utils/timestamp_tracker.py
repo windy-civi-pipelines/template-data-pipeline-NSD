@@ -114,9 +114,9 @@ def is_newer_than_latest(
 
     try:
         current_dt = to_dt_obj(raw_ts)
-        print(
-            f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
-        )
+        # print(
+        #     f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
+        # )
         return current_dt > latest_timestamp_dt
     except Exception as e:
         print(f"❌ Failed to parse timestamp '{raw_ts}' in {category}: {e}")
