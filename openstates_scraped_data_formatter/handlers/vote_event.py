@@ -3,7 +3,6 @@ import json
 from utils.file_utils import format_timestamp, record_error_file, write_vote_event_log
 from utils.timestamp_tracker import (
     update_latest_timestamp,
-    latest_timestamps,
     read_latest_timestamp,
     to_dt_obj,
 )
