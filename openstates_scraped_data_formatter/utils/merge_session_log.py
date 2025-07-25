@@ -24,7 +24,7 @@ def load_logged_sessions(log_path: Path) -> dict[str, str]:
     return mapping
 
 
-def update_session_index(session_index_path, new_entries):
+def update_session_index(session_index_path: Path, new_entries: dict[str, str]) -> None:
     with open(session_index_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
