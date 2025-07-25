@@ -30,8 +30,9 @@ def read_all_latest_timestamps():
 def to_dt_obj(ts_str):
     try:
         ts_str = ts_str.rstrip("Z")
-        return datetime.strptime(ts_str, "%Y%m%dT%H%M%S")
+        return datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S")
     except Exception:
+        print(f"❌ Failed to parse timestamp: {ts_str}")
         return None
 
 
