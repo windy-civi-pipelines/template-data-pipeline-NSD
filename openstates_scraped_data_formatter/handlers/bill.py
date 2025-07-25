@@ -1,11 +1,7 @@
 from pathlib import Path
 import json
-import re
-from urllib import request
-from urllib.parse import urlparse
 from utils.file_utils import format_timestamp, record_error_file, write_action_logs
 from utils.download_pdf import download_bill_pdf
-from utils import timestamp_tracker
 from utils.timestamp_tracker import (
     update_latest_timestamp,
     latest_timestamps,
