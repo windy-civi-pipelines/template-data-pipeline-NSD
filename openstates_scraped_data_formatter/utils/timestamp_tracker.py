@@ -1,8 +1,7 @@
 from pathlib import Path
 from datetime import datetime
 import json
-
-from openstates_scraped_data_formatter.utils.file_utils import format_timestamp
+from utils.file_utils import format_timestamp
 
 LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
