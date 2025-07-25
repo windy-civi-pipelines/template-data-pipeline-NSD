@@ -75,9 +75,7 @@ def extract_timestamp(content, category: str) -> str | None:
         return None
 
 
-def is_newer_than_latest(
-    content: dict, latest_timestamp_dt: datetime, category: str
-) -> bool:
+def is_newer_than_latest(content, latest_timestamp_dt: datetime, category: str) -> bool:
     raw_ts = extract_timestamp(content, category)
     print(
         f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
