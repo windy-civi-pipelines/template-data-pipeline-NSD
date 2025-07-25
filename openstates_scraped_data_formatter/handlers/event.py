@@ -58,7 +58,6 @@ def handle_event(
             return False
 
     timestamp = format_timestamp(start_date)
-    print(f"💬 EVENT TIMESTAMP {event_id}: {timestamp}")
     if timestamp == "unknown":
         print(f"⚠️ Event {event_id} has unrecognized timestamp format: {timestamp}")
     if timestamp and timestamp != "unknown":
