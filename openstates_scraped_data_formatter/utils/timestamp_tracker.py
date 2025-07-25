@@ -1,13 +1,15 @@
 from pathlib import Path
 from datetime import datetime
 import json
+from pathlib import Path
+from typing import Any, Optional
 from utils.file_utils import format_timestamp, record_error_file
 
 LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
 )
 
-latest_timestamps = {
+latest_timestamps: dict[str, str] = {
     "bills": "19000101T000000",
     "vote_events": "19000101T000000",
     "events": "19000101T000000",
@@ -28,7 +30,7 @@ def read_all_latest_timestamps():
         }
 
 
-def to_dt_obj(ts_str):
+def to_dt_obj(ts_str: str | datetime) -> Optional[datetime]:
     if isinstance(ts_str, datetime):
         return ts_str
     try:
@@ -42,7 +44,11 @@ def to_dt_obj(ts_str):
         return None
 
 
-def update_latest_timestamp(category, current_dt, existing_dt):
+def update_latest_timestamp(
+    category: str,
+    current_dt: Optional[datetime],
+    existing_dt: Optional[datetime],
+) -> Optional[datetime]:
     if not current_dt:
         return existing_dt
 
@@ -55,10 +61,10 @@ def update_latest_timestamp(category, current_dt, existing_dt):
     return existing_dt
 
 
-def extract_timestamp(content, category: str) -> str | None:
+def extract_timestamp(data: dict[str, Any], category: str) -> str | None:
     try:
         if category == "bills":
-            actions = content.get("actions", [])
+            actions = data.get("actions", [])
             if not actions:
                 return "NO_ACTIONS_FOUND"
             dates = [a.get("date") for a in actions if a.get("date")]
@@ -70,13 +76,13 @@ def extract_timestamp(content, category: str) -> str | None:
                 return "INVALID_BILL_DATE"
 
         elif category == "events":
-            date = content.get("start_date")
+            date = data.get("start_date")
             if date:
                 return format_timestamp(date)
             return "MISSING_EVENT_DATE"
 
         elif category == "vote_events":
-            date = content.get("start_date")
+            date = data.get("start_date")
             if date:
                 return format_timestamp(date)
             return "MISSING_VOTE_DATE"
@@ -88,12 +94,12 @@ def extract_timestamp(content, category: str) -> str | None:
 
 
 def is_newer_than_latest(
-    content,
+    data: dict[str, Any],
     latest_timestamp_dt: datetime,
     category: str,
     DATA_NOT_PROCESSED_FOLDER: Path,
 ) -> bool:
-    raw_ts = extract_timestamp(content, category)
+    raw_ts = extract_timestamp(data, category)
 
     if isinstance(raw_ts, str) and raw_ts in {
         "NO_ACTIONS_FOUND",
@@ -108,15 +114,12 @@ def is_newer_than_latest(
             DATA_NOT_PROCESSED_FOLDER,
             f"from_is_newer_than_latest_{raw_ts.lower()}",
             filename="unknown.json",
-            content=content,
+            data=data,
         )
         return False
 
     try:
         current_dt = to_dt_obj(raw_ts)
-        # print(
-        #     f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
-        # )
         return current_dt > latest_timestamp_dt
     except Exception as e:
         print(f"❌ Failed to parse timestamp '{raw_ts}' in {category}: {e}")
@@ -124,7 +127,7 @@ def is_newer_than_latest(
             DATA_NOT_PROCESSED_FOLDER,
             f"from_is_newer_than_latest_parse_error",
             filename="unknown.json",
-            content=content,
+            data=data,
             original_filename=raw_ts,
         )
         return False

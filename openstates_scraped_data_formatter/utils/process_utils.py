@@ -3,13 +3,20 @@ import click
 from handlers import bill, vote_event, event
 from utils.file_utils import record_error_file
 from utils.interactive import prompt_for_session_fix
+from pathlib import Path
+from collections.abc import Callable
+from typing import Optional
+
 from utils.timestamp_tracker import (
     write_latest_timestamp_file,
     LATEST_TIMESTAMP_PATH,
 )
 
 
-def count_successful_saves(files, handler_function):
+def count_successful_saves(
+    files: list[Path], handler_function: Callable[[Path], bool]
+) -> int:
+
     count = 0
     for file_path in files:
         success = handler_function(file_path)
@@ -19,13 +26,13 @@ def count_successful_saves(files, handler_function):
 
 
 def route_handler(
-    STATE_ABBR,
-    filename,
-    content,
-    session_metadata,
-    DATA_NOT_PROCESSED_FOLDER,
-    DATA_PROCESSED_FOLDER,
-):
+    STATE_ABBR: str,
+    filename: str,
+    content: dict,
+    session_metadata: dict[str, str],
+    DATA_NOT_PROCESSED_FOLDER: Path,
+    DATA_PROCESSED_FOLDER: Path,
+) -> Optional[str]:
     session_name = session_metadata["name"]
     date_folder = session_metadata["date_folder"]
 
@@ -71,13 +78,13 @@ def route_handler(
 
 
 def process_and_save(
-    STATE_ABBR,
-    data,
-    DATA_NOT_PROCESSED_FOLDER,
-    SESSION_MAPPING,
-    SESSION_LOG_PATH,
-    DATA_PROCESSED_FOLDER,
-):
+    STATE_ABBR: str,
+    data: list[tuple[str, dict]],
+    DATA_NOT_PROCESSED_FOLDER: Path,
+    SESSION_MAPPING: dict[str, dict[str, str]],
+    SESSION_LOG_PATH: Path,
+    DATA_PROCESSED_FOLDER: Path,
+) -> dict[str, int]:
     bill_count = 0
     event_count = 0
     vote_event_count = 0
