@@ -56,6 +56,7 @@ def update_latest_timestamp(category, current_dt, existing_dt):
     if not existing_dt_obj or current_dt_obj > existing_dt_obj:
         latest_timestamps[category] = current_dt_obj
         print(f"🕓 Updating {category} latest timestamp to {current_dt_obj}")
+        print(f"📄 File contents: {latest_timestamps}")
         return current_dt_obj
 
     return existing_dt_obj
