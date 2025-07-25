@@ -1,6 +1,15 @@
 from pathlib import Path
 import json
-from utils.file_utils import record_error_file, write_vote_event_log
+from utils.file_utils import format_timestamp, record_error_file, write_vote_event_log
+from utils.timestamp_tracker import (
+    update_latest_timestamp,
+    latest_timestamps,
+    read_latest_timestamp,
+    to_dt_obj,
+)
+
+VOTE_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("vote_events"))
+print(f"💬 (Vote_event handler) Current latest timestamp: {VOTE_LATEST_TIMESTAMP}")
 
 
 def handle_vote_event(
@@ -28,6 +37,7 @@ def handle_vote_event(
         DATA_NOT_PROCESSED_FOLDER (Path): Base path for logging unprocessable files.
         filename (str): Original filename (used in logs).
     """
+
     referenced_bill_id = content.get("bill_identifier")
     if not referenced_bill_id:
         print("⚠️ Warning: Vote missing bill_identifier")
@@ -39,6 +49,18 @@ def handle_vote_event(
             original_filename=filename,
         )
         return False
+
+    date = content.get("start_date")
+    timestamp = format_timestamp(date)
+    if timestamp == "unknown":
+        print(
+            f"⚠️ Vote Event {referenced_bill_id} has unrecognized timestamp format: {date}"
+        )
+    if timestamp and timestamp != "unknown":
+        current_dt = to_dt_obj(timestamp)
+        VOTE_LATEST_TIMESTAMP = update_latest_timestamp(
+            "vote_events", current_dt, VOTE_LATEST_TIMESTAMP
+        )
 
     save_path = Path(DATA_PROCESSED_FOLDER).joinpath(
         f"country:us",
