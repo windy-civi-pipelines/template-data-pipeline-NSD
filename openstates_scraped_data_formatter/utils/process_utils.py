@@ -1,4 +1,3 @@
-import json
 import click
 from handlers import bill, vote_event, event
 from utils.file_utils import record_error_file
