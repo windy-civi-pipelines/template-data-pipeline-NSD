@@ -7,12 +7,14 @@ from utils.file_utils import format_timestamp, record_error_file, write_action_l
 from utils.download_pdf import download_bill_pdf
 from utils import timestamp_tracker
 from utils.timestamp_tracker import (
+    update_latest_timestamp,
+    latest_timestamps,
     read_latest_timestamp,
     to_dt_obj,
 )
 
-LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp())
-print(f"Current latest timestamp: {LATEST_TIMESTAMP}")
+BILL_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("bills"))
+print(f"💬 (Bill handler) Current latest timestamp: {BILL_LATEST_TIMESTAMP}")
 
 
 def handle_bill(
@@ -40,7 +42,7 @@ def handle_bill(
     # Optional: Download linked PDF files (⚠️ very slow).
     # Default is OFF to preserve performance.
     DOWNLOAD_PDFS = False
-    global LATEST_TIMESTAMP
+    BILL_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("bills"))
 
     bill_identifier = content.get("identifier")
     if not bill_identifier:
@@ -75,12 +77,9 @@ def handle_bill(
         timestamp = format_timestamp(sorted(dates)[0]) if dates else None
         if timestamp and timestamp != "unknown":
             current_dt = to_dt_obj(timestamp)
-            if current_dt and (
-                not timestamp_tracker.LATEST_TIMESTAMP
-                or current_dt > timestamp_tracker.LATEST_TIMESTAMP
-            ):
-                timestamp_tracker.LATEST_TIMESTAMP = current_dt
-                print(f"Updating latest timestamp to {LATEST_TIMESTAMP}")
+            BILL_LATEST_TIMESTAMP = update_latest_timestamp(
+                "bills", current_dt, BILL_LATEST_TIMESTAMP
+            )
     else:
         timestamp = None
 
