@@ -5,7 +5,7 @@ from pathlib import Path
 SKIP_DELETE_PROMPT = True  # Toggle False to enable interactive CLI prompt for deletions
 
 
-def clear_DATA_OUTPUT_FOLDER(output_folder):
+def clear_DATA_OUTPUT_FOLDER(output_folder: str | Path) -> None:
     """
     Clears the given output folder after user confirmation,
     unless SKIP_DELETE_PROMPT is set to True.
@@ -37,7 +37,9 @@ def clear_DATA_OUTPUT_FOLDER(output_folder):
         print("❌ Path does not exist — skipping deletion.")
 
 
-def prompt_for_session_fix(filename, original_session_name, log_path=None):
+def prompt_for_session_fix(
+    original_session_name: str, filename: str | None = None, log_path=None
+) -> str | None:
     """
     Prompts the user to supply a corrected session name for a file with an unrecognized session.
     If the user provides one, it is returned and optionally logged to the session log file.

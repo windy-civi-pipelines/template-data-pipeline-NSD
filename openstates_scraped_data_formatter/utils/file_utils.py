@@ -3,7 +3,7 @@ from datetime import datetime
 import json
 from pathlib import Path
 from urllib import request
-from typing import Union, Optional, Any, TypedDict
+from typing import Any, TypedDict
 
 
 class SessionInfo(TypedDict):
@@ -35,7 +35,7 @@ def extract_session_mapping(jurisdiction_data: dict) -> dict[str, SessionInfo]:
 
 
 def ensure_session_mapping(
-    state_abbr: str, base_path: Path, input_folder: Union[str, Path]
+    state_abbr: str, base_path: Path, input_folder: str | Path
 ) -> dict[str, SessionInfo]:
     """
     Ensures sessions/{state_abbr}.json exists.
@@ -105,7 +105,7 @@ def record_error_file(
     category: str,
     filename: str,
     data: dict[str, Any],
-    original_filename: Optional[str] = None,
+    original_filename: str | None = None,
 ) -> None:
     folder = Path(error_folder) / category
     folder.mkdir(parents=True, exist_ok=True)
