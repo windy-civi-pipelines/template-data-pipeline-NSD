@@ -42,7 +42,7 @@ def handle_bill(
     # Optional: Download linked PDF files (⚠️ very slow).
     # Default is OFF to preserve performance.
     DOWNLOAD_PDFS = False
-    BILL_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("bills"))
+    global BILL_LATEST_TIMESTAMP
 
     bill_identifier = content.get("identifier")
     if not bill_identifier:

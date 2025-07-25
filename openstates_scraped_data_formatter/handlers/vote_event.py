@@ -37,7 +37,7 @@ def handle_vote_event(
         DATA_NOT_PROCESSED_FOLDER (Path): Base path for logging unprocessable files.
         filename (str): Original filename (used in logs).
     """
-
+    global VOTE_LATEST_TIMESTAMP
     referenced_bill_id = content.get("bill_identifier")
     if not referenced_bill_id:
         print("⚠️ Warning: Vote missing bill_identifier")

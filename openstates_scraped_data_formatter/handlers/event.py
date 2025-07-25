@@ -30,6 +30,7 @@ def handle_event(
     Saves event JSON to the correct session folder under events,
     using a consistent timestamped format to match bill action logs.
     """
+    global EVENT_LATEST_TIMESTAMP
     event_id = content.get("_id") or filename.replace(".json", "")
     start_date = content.get("start_date")
     if not start_date:
