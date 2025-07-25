@@ -1,11 +1,11 @@
 from pathlib import Path
 import click
 from tempfile import mkdtemp
-
 from utils.io_utils import load_json_files
 from utils.file_utils import ensure_session_mapping
 from utils.process_utils import process_and_save
 from postprocessors.event_bill_linker import link_events_to_bills_pipeline
+from utils.timestamp_tracker import read_all_latest_timestamps, to_dt_obj
 
 # Define state abbreviation and paths
 BASE_FOLDER = Path(__file__).parent.parent
@@ -46,6 +46,13 @@ def main(
     SESSION_MAPPING_FILE = BASE_FOLDER / "sessions" / f"{STATE_ABBR}.json"
     SESSION_LOG_PATH = DATA_OUTPUT / "new_sessions_added.txt"
 
+    raw_ts = read_all_latest_timestamps()
+    latest_timestamps_dt = {
+        "bills": to_dt_obj(raw_ts.get("bills")),
+        "vote_events": to_dt_obj(raw_ts.get("vote_events")),
+        "events": to_dt_obj(raw_ts.get("events")),
+    }
+
     # 1. Ensure output folders exist
     DATA_PROCESSED_FOLDER.mkdir(parents=True, exist_ok=True)
     DATA_NOT_PROCESSED_FOLDER.mkdir(parents=True, exist_ok=True)
@@ -60,7 +67,10 @@ def main(
 
     # 3. Load and parse all input JSON files
     all_json_files = load_json_files(
-        input_folder, EVENT_ARCHIVE_FOLDER, DATA_NOT_PROCESSED_FOLDER
+        input_folder,
+        EVENT_ARCHIVE_FOLDER,
+        DATA_NOT_PROCESSED_FOLDER,
+        latest_timestamps_dt,
     )
 
     # 4. Route and process by handler (returns counts)
