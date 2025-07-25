@@ -3,7 +3,6 @@ from datetime import datetime
 import json
 from pathlib import Path
 from urllib import request
-from utils.timestamp_tracker import to_dt_obj
 
 
 def format_timestamp(date_str):
