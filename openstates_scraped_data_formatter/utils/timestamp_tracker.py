@@ -16,13 +16,14 @@ latest_timestamps = {
 def read_all_latest_timestamps():
     try:
         with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
+            raw = json.load(f)
+            return {k: to_dt_obj(v) for k, v in raw.items() if v}
+    except Exception:
         print("⚠️ No timestamp file found or invalid JSON. Using defaults.")
         return {
-            "bills": "19000101T000000",
-            "vote_events": "19000101T000000",
-            "events": "19000101T000000",
+            "bills": datetime(1900, 1, 1),
+            "vote_events": datetime(1900, 1, 1),
+            "events": datetime(1900, 1, 1),
         }
 
 
