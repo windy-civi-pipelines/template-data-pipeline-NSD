@@ -4,11 +4,11 @@ import re
 from utils.file_utils import record_error_file, format_timestamp
 from utils.timestamp_tracker import (
     update_latest_timestamp,
-    read_latest_timestamp,
+    read_all_latest_timestamps,
     to_dt_obj,
 )
 
-EVENT_LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp("events"))
+EVENT_LATEST_TIMESTAMP = to_dt_obj(read_all_latest_timestamps("events"))
 print(f"💬 (Event handler) Current latest timestamp: {EVENT_LATEST_TIMESTAMP}")
 
 
