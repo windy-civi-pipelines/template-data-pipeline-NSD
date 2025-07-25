@@ -29,10 +29,12 @@ def read_all_latest_timestamps():
 
 def to_dt_obj(ts_str):
     try:
+        if not isinstance(ts_str, str):
+            raise ValueError(f"Expected string, got {type(ts_str)}")
         ts_str = ts_str.rstrip("Z")
         return datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%S")
-    except Exception:
-        print(f"❌ Failed to parse timestamp: {ts_str}")
+    except Exception as e:
+        print(f"❌ Failed to parse timestamp: {ts_str} ({e})")
         return None
 
 
