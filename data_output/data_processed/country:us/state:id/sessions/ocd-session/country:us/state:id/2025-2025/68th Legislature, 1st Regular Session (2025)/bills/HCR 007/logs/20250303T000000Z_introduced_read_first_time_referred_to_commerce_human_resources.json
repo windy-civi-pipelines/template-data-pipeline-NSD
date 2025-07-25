@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced, read first time; referred to: Commerce & Human Resources",
+    "date": "2025-03-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 007"
+}

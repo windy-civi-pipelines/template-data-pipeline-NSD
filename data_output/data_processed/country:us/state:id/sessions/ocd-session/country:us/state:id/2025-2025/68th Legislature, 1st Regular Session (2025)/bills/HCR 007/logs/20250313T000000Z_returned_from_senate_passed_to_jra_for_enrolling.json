@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Returned from Senate Passed; to JRA for Enrolling",
+    "date": "2025-03-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "enrolled"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 007"
+}

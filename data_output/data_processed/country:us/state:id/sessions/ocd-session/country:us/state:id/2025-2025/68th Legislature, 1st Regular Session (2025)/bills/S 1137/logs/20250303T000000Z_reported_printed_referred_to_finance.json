@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported Printed; referred to Finance",
+    "date": "2025-03-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1137"
+}

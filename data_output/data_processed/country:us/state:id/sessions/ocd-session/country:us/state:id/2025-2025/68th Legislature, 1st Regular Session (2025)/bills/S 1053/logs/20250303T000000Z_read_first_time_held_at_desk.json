@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Read First Time, Held at Desk",
+    "date": "2025-03-03",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1053"
+}

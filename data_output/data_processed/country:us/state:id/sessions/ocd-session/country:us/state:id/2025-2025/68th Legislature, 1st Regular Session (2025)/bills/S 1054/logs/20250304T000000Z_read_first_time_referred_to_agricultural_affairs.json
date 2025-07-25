@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read First Time, Referred to Agricultural Affairs",
+    "date": "2025-03-04",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-1",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1054"
+}

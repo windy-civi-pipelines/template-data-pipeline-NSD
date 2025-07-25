@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Introduced; read first time; referred to JR for Printing",
+    "date": "2025-02-10",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "introduction"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1090"
+}

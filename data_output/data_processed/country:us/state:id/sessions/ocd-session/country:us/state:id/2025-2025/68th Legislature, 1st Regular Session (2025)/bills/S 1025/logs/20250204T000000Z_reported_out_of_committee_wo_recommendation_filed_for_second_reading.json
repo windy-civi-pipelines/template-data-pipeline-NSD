@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported out of Committee w/o Recommendation, filed for second reading",
+    "date": "2025-02-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1025"
+}

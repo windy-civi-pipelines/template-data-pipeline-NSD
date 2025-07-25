@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Rules Suspended (2/3 Vote - Read in full as required) \u2013 ADOPTED \u2013 voice voteFloor Sponsor \u2013 Den HartogTitle apvd \u2013 to House",
+    "date": "2025-01-06",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "passage",
+      "reading-3"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 001"
+}

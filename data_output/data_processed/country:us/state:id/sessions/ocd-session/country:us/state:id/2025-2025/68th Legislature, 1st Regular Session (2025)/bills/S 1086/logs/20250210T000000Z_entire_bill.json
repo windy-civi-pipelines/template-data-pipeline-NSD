@@ -1,0 +1,141 @@
+{
+  "legislative_session": "2025",
+  "identifier": "S 1086",
+  "title": "TRESPASS \u2013 Adds to existing law to establish provisions regarding a violation of landowner rules for permissible use.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "CITIES",
+    "COUNTIES",
+    "CRIMINAL OFFENSES AND PROCEDURES",
+    "FEDERAL LAWS AND RELATIONS",
+    "GOVERNMENT",
+    "LAND USE",
+    "LANDS"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Landowner rules, trespass"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced; read first time; referred to JR for Printing",
+      "date": "2025-02-10",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed; referred to Resources & Environment",
+      "date": "2025-02-11",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Reported out of Committee with Do Pass Recommendation; Filed for second reading",
+      "date": "2025-02-18",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read second time; filed for Third Reading",
+      "date": "2025-02-19",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "reading-2"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Read third time in full \u2013 PASSED - 18-16-1AYES \u2013 Adams, Anthon, Bernt, Blaylock, Burtenshaw, Cook, Den Hartog, Galloway, Grow, Guthrie, Harris, Lakey, Rabe, Semmelroth, Taylor, VanOrden, Ward-Engelking, WoodwardNAYS \u2013 Bjerke, Carlson, Foreman, Hart, Keyser, Kohl, Lenney, Nichols, Okuniewicz, Ricks, Ruchti, Shippy, Toews, Wintrow, Zito, ZuiderveldAbsent and excused \u2013 LentFloor Sponsor - HarrisTitle apvd - to House",
+      "date": "2025-02-25",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Received from the Senate, Filed for First Reading",
+      "date": "2025-02-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Read First Time, Referred to Resources & Conservation",
+      "date": "2025-02-26",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-1",
+        "referral-committee"
+      ],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "RESOURCES AND ENVIRONMENT COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"upper\", \"name\": \"RESOURCES AND ENVIRONMENT COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1086.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1086SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/S1086/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-25T23:26:07+00:00",
+  "_id": "bdc60b48-69ae-11f0-b05f-f6f7a815e443"
+}

@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Rules Suspended: Ayes 62 Nays 4 Abs/Excd 4, read in full as required",
+    "date": "2025-03-12",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0378"
+}

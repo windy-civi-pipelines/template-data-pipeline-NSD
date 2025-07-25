@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Senate vote to override vetoFAILED (less than two-thirds) - 20-14-1AYES \u2013 Adams, Anthon, Bjerke, Carlson, Den Hartog, Foreman, Galloway, Grow, Hart, Keyser, Kohl, Lakey, Lenney, Nichols, Okuniewicz, Ricks, Shippy, Toews, Zito, ZuiderveldNAYS \u2013 Bernt, Blaylock, Burtenshaw, Cook, Guthrie, Harris, Lent, Ruchti, Semmelroth, Taylor, VanOrden, Ward-Engelking, Wintrow, WoodwardAbsent and excused \u2013 RabeVeto SUSTAINED by SenateFiled in Office of Secretary of Senate",
+    "date": "2025-04-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1023"
+}

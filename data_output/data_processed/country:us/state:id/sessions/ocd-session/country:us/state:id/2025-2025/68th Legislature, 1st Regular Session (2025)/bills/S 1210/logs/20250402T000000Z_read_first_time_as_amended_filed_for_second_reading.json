@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Read first time as amended, filed for Second Reading",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1210"
+}

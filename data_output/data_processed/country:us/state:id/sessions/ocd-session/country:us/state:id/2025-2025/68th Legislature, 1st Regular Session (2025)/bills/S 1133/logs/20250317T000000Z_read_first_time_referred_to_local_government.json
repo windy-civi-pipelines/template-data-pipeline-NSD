@@ -1,0 +1,13 @@
+{
+  "action": {
+    "description": "Read First Time, Referred to Local Government",
+    "date": "2025-03-17",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "reading-1",
+      "referral-committee"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1133"
+}

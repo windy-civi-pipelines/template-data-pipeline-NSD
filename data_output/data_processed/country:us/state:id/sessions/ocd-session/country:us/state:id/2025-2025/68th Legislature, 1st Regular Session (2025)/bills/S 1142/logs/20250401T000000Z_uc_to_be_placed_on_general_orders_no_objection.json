@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "U.C. to be placed on General Orders, no objection",
+    "date": "2025-04-01",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1142"
+}
