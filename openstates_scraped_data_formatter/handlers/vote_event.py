@@ -19,7 +19,7 @@ def handle_vote_event(
     DATA_PROCESSED_FOLDER: Path,
     DATA_NOT_PROCESSED_FOLDER: Path,
     filename: str,
-):
+) -> bool:
     """
     Handles a vote_event JSON file by:
 

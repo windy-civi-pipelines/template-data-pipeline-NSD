@@ -26,7 +26,7 @@ def handle_event(
     DATA_NOT_PROCESSED_FOLDER: Path,
     filename: str,
     referenced_bill_id: str | None,
-):
+) -> bool:
     """
     Saves event JSON to the correct session folder under events,
     using a consistent timestamped format to match bill action logs.

@@ -21,7 +21,7 @@ def handle_bill(
     DATA_PROCESSED_FOLDER: Path,
     DATA_NOT_PROCESSED_FOLDER: Path,
     filename: str,
-):
+) -> bool:
     """
     Handles a bill JSON file by saving:
 
