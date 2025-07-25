@@ -69,12 +69,16 @@ def is_newer_than_latest(content: dict, latest_timestamp_dt: datetime) -> bool:
         return True  # If parsing fails, allow through
 
 
+from .timestamp_tracker import to_dt_obj  # or make sure it's imported
+
+
 def write_latest_timestamp_file():
     try:
         output = {}
         for k, dt in latest_timestamps.items():
-            if dt:
-                output[k] = dt.strftime("%Y-%m-%dT%H:%M:%S")
+            dt_obj = to_dt_obj(dt) if isinstance(dt, str) else dt
+            if dt_obj:
+                output[k] = dt_obj.strftime("%Y-%m-%dT%H:%M:%S")
 
         if not output:
             print("⚠️ No timestamps to write.")
