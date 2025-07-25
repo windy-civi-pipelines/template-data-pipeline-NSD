@@ -42,25 +42,18 @@ def to_dt_obj(ts_str):
 
 
 def update_latest_timestamp(category, current_dt, existing_dt):
-    # print(f"💬 Updating {category} timestamp: {current_dt} (existing: {existing_dt})")
+    print(f"💬 Updating {category} timestamp: {current_dt} (existing: {existing_dt})")
+
     if not current_dt:
         return existing_dt
 
-    # Convert to datetime if needed
-    current_dt_obj = (
-        to_dt_obj(current_dt) if isinstance(current_dt, str) else current_dt
-    )
-    existing_dt_obj = (
-        to_dt_obj(existing_dt) if isinstance(existing_dt, str) else existing_dt
-    )
-    print(f"💬 Current: {current_dt_obj}, Existing: {existing_dt_obj}")
-    if not existing_dt_obj or current_dt_obj > existing_dt_obj:
-        latest_timestamps[category] = current_dt_obj
-        print(f"🕓 Updating {category} latest timestamp to {current_dt_obj}")
+    if not existing_dt or current_dt > existing_dt:
+        latest_timestamps[category] = current_dt
+        print(f"🕓 Updating {category} latest timestamp to {current_dt}")
         print(f"📄 File contents: {latest_timestamps}")
-        return current_dt_obj
+        return current_dt
 
-    return existing_dt_obj
+    return existing_dt
 
 
 def is_newer_than_latest(content: dict, latest_timestamp_dt: datetime) -> bool:
