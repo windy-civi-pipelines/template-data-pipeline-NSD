@@ -42,6 +42,7 @@ def to_dt_obj(ts_str):
 
 
 def update_latest_timestamp(category, current_dt, existing_dt):
+    print(f"💬 Updating {category} timestamp: {current_dt} (existing: {existing_dt})")
     if not current_dt:
         return existing_dt
 
