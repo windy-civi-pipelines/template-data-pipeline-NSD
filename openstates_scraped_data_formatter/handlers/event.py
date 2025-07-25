@@ -65,7 +65,7 @@ def handle_event(
         EVENT_LATEST_TIMESTAMP = update_latest_timestamp(
             "events", current_dt, EVENT_LATEST_TIMESTAMP
         )
-
+    print(f"💬 EVENT TIMESTAMP CHANGED {event_id}: {EVENT_LATEST_TIMESTAMP}")
     event_name = content.get("name", "event")
     short_name = clean_event_name(event_name)
 

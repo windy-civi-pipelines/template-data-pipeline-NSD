@@ -75,6 +75,7 @@ def handle_bill(
             BILL_LATEST_TIMESTAMP = update_latest_timestamp(
                 "bills", current_dt, BILL_LATEST_TIMESTAMP
             )
+        print(f"💬 BILL TIMESTAMP CHANGED {bill_identifier}: {BILL_LATEST_TIMESTAMP}")
     else:
         timestamp = None
 

@@ -60,7 +60,7 @@ def handle_vote_event(
         VOTE_LATEST_TIMESTAMP = update_latest_timestamp(
             "vote_events", current_dt, VOTE_LATEST_TIMESTAMP
         )
-
+    print(f"💬 VOTE TIMESTAMP CHANGED {referenced_bill_id}: {VOTE_LATEST_TIMESTAMP}")
     save_path = Path(DATA_PROCESSED_FOLDER).joinpath(
         f"country:us",
         f"state:{STATE_ABBR}",
