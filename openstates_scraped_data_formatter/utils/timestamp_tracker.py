@@ -1,7 +1,7 @@
 from pathlib import Path
 from datetime import datetime
 import json
-from utils.file_utils import format_timestamp
+from utils.file_utils import format_timestamp, record_error_file
 
 LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
@@ -59,37 +59,75 @@ def extract_timestamp(content, category: str) -> str | None:
     try:
         if category == "bills":
             actions = content.get("actions", [])
+            if not actions:
+                return "NO_ACTIONS_FOUND"
             dates = [a.get("date") for a in actions if a.get("date")]
-            return format_timestamp(sorted(dates)[-1]) if dates else None
+            if not dates:
+                return "NO_DATES_IN_ACTIONS"
+            try:
+                return format_timestamp(min(dates))
+            except Exception:
+                return "INVALID_BILL_DATE"
 
         elif category == "events":
-            return format_timestamp(content.get("start_date"))
+            date = content.get("start_date")
+            if date:
+                return format_timestamp(date)
+            return "MISSING_EVENT_DATE"
 
         elif category == "vote_events":
-            return format_timestamp(content.get("start_date"))
+            date = content.get("start_date")
+            if date:
+                return format_timestamp(date)
+            return "MISSING_VOTE_DATE"
 
-        else:
-            return None
+        return "UNKNOWN_CATEGORY"
+
     except Exception as e:
-        print(f"❌ Failed to extract timestamp for {category}: {e}")
-        return None
+        return f"ERROR_{category.upper()}_{str(e)}"
 
 
-def is_newer_than_latest(content, latest_timestamp_dt: datetime, category: str) -> bool:
+def is_newer_than_latest(
+    content,
+    latest_timestamp_dt: datetime,
+    category: str,
+    DATA_NOT_PROCESSED_FOLDER: Path,
+) -> bool:
     raw_ts = extract_timestamp(content, category)
-    print(
-        f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
-    )
 
-    if not raw_ts:
-        return True
+    if isinstance(raw_ts, str) and raw_ts in {
+        "NO_ACTIONS_FOUND",
+        "NO_DATES_IN_ACTIONS",
+        "INVALID_BILL_DATE",
+        "MISSING_EVENT_DATE",
+        "MISSING_VOTE_DATE",
+        "UNKNOWN_CATEGORY",
+    }:
+        print(f"⚠️ Skipping item in {category} — invalid timestamp: {raw_ts}")
+        record_error_file(
+            DATA_NOT_PROCESSED_FOLDER,
+            f"from_is_newer_than_latest_{raw_ts.lower()}",
+            filename="unknown.json",
+            content=content,
+        )
+        return False
 
     try:
         current_dt = to_dt_obj(raw_ts)
+        print(
+            f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
+        )
         return current_dt > latest_timestamp_dt
     except Exception as e:
-        print(f"❌ Failed to parse {raw_ts}: {e}")
-        return True
+        print(f"❌ Failed to parse timestamp '{raw_ts}' in {category}: {e}")
+        record_error_file(
+            DATA_NOT_PROCESSED_FOLDER,
+            f"from_is_newer_than_latest_parse_error",
+            filename="unknown.json",
+            content=content,
+            original_filename=raw_ts,
+        )
+        return False
 
 
 def write_latest_timestamp_file():
