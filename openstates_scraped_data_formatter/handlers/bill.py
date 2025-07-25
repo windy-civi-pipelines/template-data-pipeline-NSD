@@ -70,6 +70,7 @@ def handle_bill(
     if actions:
         dates = [a.get("date") for a in actions if a.get("date")]
         timestamp = format_timestamp(sorted(dates)[0]) if dates else None
+        print(f"💬 BILL TIMESTAMP {bill_identifier}: {timestamp}")
         if timestamp and timestamp != "unknown":
             current_dt = to_dt_obj(timestamp)
             BILL_LATEST_TIMESTAMP = update_latest_timestamp(

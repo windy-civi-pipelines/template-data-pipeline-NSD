@@ -51,6 +51,7 @@ def handle_vote_event(
 
     date = content.get("start_date")
     timestamp = format_timestamp(date)
+    print(f"💬 VOTE TIMESTAMP {referenced_bill_id}: {timestamp}")
     if timestamp == "unknown":
         print(
             f"⚠️ Vote Event {referenced_bill_id} has unrecognized timestamp format: {date}"
@@ -86,5 +87,5 @@ def handle_vote_event(
 
     # Save the full vote_event log
     write_vote_event_log(content, referenced_bill_id, save_path / "logs")
-    print(f"✅ Saved vote event for bill {referenced_bill_id}")
+    # print(f"✅ Saved vote event for bill {referenced_bill_id}")
     return True
