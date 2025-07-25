@@ -47,6 +47,7 @@ def main(
     SESSION_LOG_PATH = DATA_OUTPUT / "new_sessions_added.txt"
 
     raw_ts = read_all_latest_timestamps()
+    print(f"💬 Raw latest timestamps: {raw_ts}")
     latest_timestamps_dt = {
         "bills": to_dt_obj(raw_ts.get("bills")),
         "vote_events": to_dt_obj(raw_ts.get("vote_events")),
