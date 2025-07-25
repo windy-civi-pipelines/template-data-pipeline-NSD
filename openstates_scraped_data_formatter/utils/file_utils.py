@@ -3,9 +3,15 @@ from datetime import datetime
 import json
 from pathlib import Path
 from urllib import request
+from typing import Union, Optional, Any, TypedDict
 
 
-def format_timestamp(date_str):
+class SessionInfo(TypedDict):
+    name: str
+    date_folder: str
+
+
+def format_timestamp(date_str: str) -> str | None:
     try:
         dt = datetime.fromisoformat(date_str)
         return dt.strftime("%Y%m%dT%H%M%SZ")
@@ -13,18 +19,7 @@ def format_timestamp(date_str):
         return None
 
 
-def extract_session_mapping(jurisdiction_data):
-    """
-    Extracts {identifier: name} from legislative_sessions.
-    """
-    return {
-        session["identifier"]: session["name"]
-        for session in jurisdiction_data.get("legislative_sessions", [])
-        if "identifier" in session and "name" in session
-    }
-
-
-def extract_session_mapping(jurisdiction_data):
+def extract_session_mapping(jurisdiction_data: dict) -> dict[str, SessionInfo]:
     session_mapping = {}
     for session in jurisdiction_data.get("legislative_sessions", []):
         identifier = session.get("identifier")
@@ -39,7 +34,9 @@ def extract_session_mapping(jurisdiction_data):
     return session_mapping
 
 
-def ensure_session_mapping(state_abbr, base_path, input_folder):
+def ensure_session_mapping(
+    state_abbr: str, base_path: Path, input_folder: Union[str, Path]
+) -> dict[str, SessionInfo]:
     """
     Ensures sessions/{state_abbr}.json exists.
     - If jurisdiction_*.json is found, extract and overwrite session cache.
@@ -104,8 +101,12 @@ def ensure_session_mapping(state_abbr, base_path, input_folder):
 
 
 def record_error_file(
-    error_folder, category, filename, content, original_filename=None
-):
+    error_folder: str | Path,
+    category: str,
+    filename: str,
+    data: dict[str, Any],
+    original_filename: Optional[str] = None,
+) -> None:
     folder = Path(error_folder) / category
     folder.mkdir(parents=True, exist_ok=True)
 
@@ -119,22 +120,22 @@ def record_error_file(
                 if name:
                     existing_names.add(name)
         except Exception:
-            continue  # skip unreadable files just in case
+            continue
 
     # 🛑 Step 2: Skip if this "name" already exists
-    if content.get("name") in existing_names:
-        print(f"⚠️ Skipping duplicate org: {content['name']}")
+    if data.get("name") in existing_names:
+        print(f"⚠️ Skipping duplicate org: {data['name']}")
         return
 
     if original_filename:
-        content["_original_filename"] = original_filename
+        data["_original_filename"] = original_filename
 
     with open(folder / filename, "w", encoding="utf-8") as f:
-        json.dump(content, f, indent=2)
+        json.dump(data, f, indent=2)
     print(f"📄 Saved error file to: {folder / filename}")
 
 
-def slugify(text, max_length=100):
+def slugify(text: str, max_length=100):
     """
     Converts a string to a safe, lowercase, underscore-separated slug.
     Strips punctuation and truncates long filenames.
@@ -146,7 +147,9 @@ def slugify(text, max_length=100):
     return text[:max_length]
 
 
-def write_action_logs(actions, bill_identifier, log_folder):
+def write_action_logs(
+    actions: list[dict[str, Any]], bill_identifier: str, log_folder: str | Path
+) -> None:
     """
     Writes one JSON file per action for a bill.
 
@@ -166,7 +169,7 @@ def write_action_logs(actions, bill_identifier, log_folder):
             json.dump({"action": action, "bill_id": bill_identifier}, f, indent=2)
 
 
-def write_vote_event_log(vote_event, bill_identifier, log_folder):
+def write_vote_event_log(vote_event: dict[str, Any], log_folder: str | Path) -> None:
     """
     Saves a single vote_event file as a timestamped log with result-based suffix.
 
