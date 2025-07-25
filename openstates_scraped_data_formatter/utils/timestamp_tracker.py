@@ -6,12 +6,20 @@ LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
 )
 
+latest_timestamps = {
+    "bills": None,
+    "vote_events": None,
+    "events": None,
+}
 
-def read_latest_timestamp():
+
+def read_latest_timestamp(data_type):
     try:
-        return LATEST_TIMESTAMP_PATH.read_text().strip()
+        with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
+            all_timestamps = json.load(f)
+            return all_timestamps.get(data_type)
     except FileNotFoundError:
-        return None
+        return "1900-01-01T00:00:00"
 
 
 def to_dt_obj(ts_str):
@@ -22,19 +30,32 @@ def to_dt_obj(ts_str):
         return None
 
 
-def write_latest_timestamp(timestamp):
-    try:
-        Path(LATEST_TIMESTAMP_PATH).parent.mkdir(parents=True, exist_ok=True)
-        Path(LATEST_TIMESTAMP_PATH).write_text(timestamp)
-        print(f"📝 Updated latest timestamp path: {LATEST_TIMESTAMP_PATH}")
-        print(f"📝 Updated latest timestamp file: {timestamp}")
+def update_latest_timestamp(category, current_dt, existing_dt):
+    if current_dt and (not existing_dt or current_dt > existing_dt):
+        latest_timestamps[category] = current_dt
+        print(f"🕓 Updating {category} latest timestamp to {current_dt}")
+        return current_dt
+    return existing_dt
 
-        # ✅ Print file contents to confirm
+
+def write_latest_timestamp_file():
+    try:
+        output = {}
+        for k, dt in latest_timestamps.items():
+            if dt:
+                output[k] = dt.strftime("%Y-%m-%dT%H:%M:%S")
+
+        if not output:
+            print("⚠️ No timestamps to write.")
+            return
+
+        LATEST_TIMESTAMP_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(LATEST_TIMESTAMP_PATH, "w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2)
+
+        print(f"📝 Updated latest timestamp path: {LATEST_TIMESTAMP_PATH}")
         print("📄 File contents:")
-        print(Path(LATEST_TIMESTAMP_PATH).read_text())
+        print(json.dumps(output, indent=2))
 
     except Exception as e:
         print(f"❌ Failed to write latest timestamp: {e}")
-
-
-LATEST_TIMESTAMP = to_dt_obj(read_latest_timestamp())
