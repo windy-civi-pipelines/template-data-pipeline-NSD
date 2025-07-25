@@ -2,6 +2,8 @@ from pathlib import Path
 from datetime import datetime
 import json
 
+from openstates_scraped_data_formatter.utils.file_utils import format_timestamp
+
 LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
 )
@@ -54,30 +56,43 @@ def update_latest_timestamp(category, current_dt, existing_dt):
     return existing_dt
 
 
-def is_newer_than_latest(content: dict, latest_timestamp_dt: datetime) -> bool:
-    raw_ts = content.get("start_date") or content.get("date")
+def extract_timestamp(content, category: str) -> str | None:
+    try:
+        if category == "bills":
+            actions = content.get("actions", [])
+            dates = [a.get("date") for a in actions if a.get("date")]
+            return format_timestamp(sorted(dates)[-1]) if dates else None
+
+        elif category == "events":
+            return format_timestamp(content.get("start_date"))
+
+        elif category == "vote_events":
+            return format_timestamp(content.get("start_date"))
+
+        else:
+            return None
+    except Exception as e:
+        print(f"❌ Failed to extract timestamp for {category}: {e}")
+        return None
+
+
+def is_newer_than_latest(
+    content: dict, latest_timestamp_dt: datetime, category: str
+) -> bool:
+    raw_ts = extract_timestamp(content, category)
     print(
-        f"💬 Checking if raw_ts: {raw_ts} is newer than latest timestamp: {latest_timestamp_dt}"
+        f"💬 Extracted raw_ts for {category}: {raw_ts} vs latest: {latest_timestamp_dt}"
     )
+
     if not raw_ts:
-        return True  # Allow through if no date field
+        return True
 
     try:
-        raw_ts = raw_ts.rstrip("Z")
-        print(f"💬 r.strip raw_ts: {raw_ts}")
-        # Try ISO format first
-        try:
-            current_dt = datetime.strptime(raw_ts, "%Y-%m-%dT%H:%M:%S")
-        except ValueError:
-            # Fall back to OpenStates-style format (e.g., 20250311T000000)
-            current_dt = datetime.strptime(raw_ts, "%Y%m%dT%H%M%S")
-        print(
-            f"💬 Current_dt: {current_dt} AND latest_timestamp_dt {latest_timestamp_dt}"
-        )
+        current_dt = to_dt_obj(raw_ts)
         return current_dt > latest_timestamp_dt
     except Exception as e:
         print(f"❌ Failed to parse {raw_ts}: {e}")
-        return True  # If parsing fails, allow through
+        return True
 
 
 def write_latest_timestamp_file():
