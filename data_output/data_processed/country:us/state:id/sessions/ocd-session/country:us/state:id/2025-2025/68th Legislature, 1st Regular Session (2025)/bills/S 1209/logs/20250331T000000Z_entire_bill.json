@@ -1,0 +1,207 @@
+{
+  "legislative_session": "2025",
+  "identifier": "S 1209",
+  "title": "APPROPRIATIONS \u2013 COLLEGE AND UNIVERSITIES \u2013 Relates to the appropriation to the State Board of Education and the Board of Regents of the University of Idaho for College and Universities and the Office of the State Board of Education for fiscal year 2026.",
+  "from_organization": "~{\"classification\": \"upper\"}",
+  "classification": [
+    "bill"
+  ],
+  "subject": [
+    "APPROPRIATIONS",
+    "COLLEGES AND UNIVERSITIES",
+    "EDUCATION"
+  ],
+  "abstracts": [],
+  "other_titles": [
+    {
+      "note": "short title",
+      "title": "Approp, edu bd, college univ, add\u2019l"
+    }
+  ],
+  "other_identifiers": [],
+  "actions": [
+    {
+      "description": "Introduced; read first time; referred to JR for Printing",
+      "date": "2025-03-31",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "introduction"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported Printed; referred to Finance",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Reported out of Committee with Do Pass Recommendation; Filed for second reading",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "committee-passage-favorable"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Rules Suspended (2/3 Vote - Read in full as required) \u2013 PASSED - 32-2-1AYES \u2013 Adams, Anthon, Bernt, Bjerke, Blaylock, Burtenshaw, Carlson, Coho(Lenney), Cook, Den Hartog, Foreman, Grow, Guthrie, Harris, Keyser, Kohl, Lakey, Lent, Nichols, Okuniewicz, Ricks, Ruchti, Semmelroth, Shippy, Taylor, Toews, VanOrden, Ward-Engelking, Wintrow, Woller(Rabe), Woodward, ZitoNAYS \u2013 Galloway, ZuiderveldAbsent and excused \u2013 HartFloor Sponsor - CarlsonTitle apvd - to House",
+      "date": "2025-04-01",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "passage",
+        "reading-3"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Received from the Senate, Filed for First Reading",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Read First Time, Filed for Second Reading",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "reading-1"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Rules Suspended: Ayes 65 Nays 0 Abs/Excd 5, read in full as required \u2013 PASSED - 64-2-4AYES \u2013 Achilles, Alfieri, Andrus, Barbieri, Beiswenger, Berch, Boyle, Bruce, Burgoyne, Cannon, Cayler, Cheatum, Church, Clow, Cornilles, Crane(12), Crane(13), Dygert, Egbert, Ehardt, Ehlers, Erickson, Fuhriman, Furniss, Galaviz, Gannon, Garner, Green, Handy, Hawkins, Healey, Hill(Brown), Holtzclaw, Hostetler, Leavitt, Manwaring, Marmon, McCann, Mendive, Mickelsen, Miller, Mitchell, Monks, Nelsen, Palmer, Pickett, Pohanka, Price, Rasor, Raybould, Raymond, Redman, Sauter, Scott(Dotson), Shepherd, Shirts, Skaug, Tanner(13), Tanner(14), Thompson, Weber, Wheeler, Wisniewski, Mr. SpeakerNAYS \u2013 Harris, PetzkeAbsent \u2013 Horman, Mathias, Rubel, Vander Woude(Harris)Floor Sponsor - PriceTitle apvd - to Senate",
+      "date": "2025-04-02",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Returned From House Passed; referred to enrolling",
+      "date": "2025-04-03",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "enrolled"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported enrolled; signed by President; to House for signature of Speaker",
+      "date": "2025-04-03",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [],
+      "related_entities": []
+    },
+    {
+      "description": "Received from Senate; Signed by Speaker; Returned to Senate",
+      "date": "2025-04-03",
+      "organization_id": "~{\"classification\": \"lower\"}",
+      "classification": [
+        "passage"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported signed by the Speaker & ordered delivered to Governor",
+      "date": "2025-04-03",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Reported delivered to Governor at 8:26 a.m. on 04/04/25",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "executive-receipt"
+      ],
+      "related_entities": []
+    },
+    {
+      "description": "Signed by Governor on 04/14/25    Session Law Chapter 333    Effective: 07/01/2025",
+      "date": "2025-04-04",
+      "organization_id": "~{\"classification\": \"upper\"}",
+      "classification": [
+        "executive-signature"
+      ],
+      "related_entities": []
+    }
+  ],
+  "sponsorships": [
+    {
+      "name": "FINANCE COMMITTEE",
+      "classification": "primary",
+      "entity_type": "organization",
+      "primary": true,
+      "person_id": null,
+      "organization_id": "~{\"chamber\": \"upper\", \"name\": \"FINANCE COMMITTEE\"}"
+    }
+  ],
+  "related_bills": [],
+  "versions": [
+    {
+      "note": "Bill Text",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1209.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "documents": [
+    {
+      "note": "Statement of Purpose / Fiscal Note",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1209SOP.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    },
+    {
+      "note": "Legislative Co-sponsors",
+      "links": [
+        {
+          "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/S1209LegCo.pdf",
+          "media_type": "application/pdf"
+        }
+      ],
+      "date": "",
+      "classification": ""
+    }
+  ],
+  "citations": [
+    {
+      "publication": "Idaho Session Laws 2025",
+      "citation": "Chapter 333",
+      "citation_type": "chapter",
+      "effective": "2025-07-01",
+      "expires": null,
+      "url": null
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/S1209/",
+      "note": ""
+    }
+  ],
+  "extras": {},
+  "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:id/government",
+    "name": "Idaho",
+    "classification": "state",
+    "division_id": "ocd-division/country:us/state:id"
+  },
+  "scraped_at": "2025-07-26T01:33:54+00:00",
+  "_id": "97990378-69c0-11f0-ba31-ca123f465b61"
+}

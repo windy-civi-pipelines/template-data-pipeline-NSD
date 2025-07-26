@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Take bill off General Orders; filed for second reading",
+    "date": "2025-04-02",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "S 1181"
+}

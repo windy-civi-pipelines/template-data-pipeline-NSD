@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported delivered to Governor at 12:26 p.m. on 04/04/25",
+    "date": "2025-04-04",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-receipt"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1142"
+}

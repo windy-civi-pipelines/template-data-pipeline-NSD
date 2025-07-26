@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "U.C. to be returned to Business Committee",
+    "date": "2025-03-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0117"
+}

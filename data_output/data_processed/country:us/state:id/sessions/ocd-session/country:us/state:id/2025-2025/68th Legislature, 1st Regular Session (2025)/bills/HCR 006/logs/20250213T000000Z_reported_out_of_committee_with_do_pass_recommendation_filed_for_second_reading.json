@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Reported out of Committee with Do Pass Recommendation, Filed for Second Reading",
+    "date": "2025-02-13",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [
+      "committee-passage-favorable"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "HCR 006"
+}

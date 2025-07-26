@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Reported Printed; referred to 10th order; held one legislative day",
+    "date": "2025-02-11",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "SCR 106"
+}

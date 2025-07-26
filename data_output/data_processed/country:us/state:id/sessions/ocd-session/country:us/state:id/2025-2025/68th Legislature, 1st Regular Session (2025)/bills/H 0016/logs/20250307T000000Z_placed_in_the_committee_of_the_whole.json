@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Placed in the Committee of the Whole",
+    "date": "2025-03-07",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0016"
+}

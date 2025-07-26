@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "U.C. to hold place on third reading calendar one legislative day",
+    "date": "2025-03-19",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0117"
+}

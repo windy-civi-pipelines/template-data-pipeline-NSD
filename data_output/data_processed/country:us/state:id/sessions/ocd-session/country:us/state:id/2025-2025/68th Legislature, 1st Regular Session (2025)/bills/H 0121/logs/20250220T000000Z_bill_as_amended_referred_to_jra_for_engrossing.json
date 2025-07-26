@@ -1,0 +1,10 @@
+{
+  "action": {
+    "description": "Bill as Amended Referred to JRA for Engrossing",
+    "date": "2025-02-20",
+    "organization_id": "~{\"classification\": \"lower\"}",
+    "classification": [],
+    "related_entities": []
+  },
+  "bill_id": "H 0121"
+}

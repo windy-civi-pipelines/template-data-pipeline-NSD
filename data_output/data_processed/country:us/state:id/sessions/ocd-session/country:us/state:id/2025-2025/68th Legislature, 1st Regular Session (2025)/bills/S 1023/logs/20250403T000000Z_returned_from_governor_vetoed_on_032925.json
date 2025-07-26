@@ -1,0 +1,12 @@
+{
+  "action": {
+    "description": "Returned from Governor vetoed on 03/29/25",
+    "date": "2025-04-03",
+    "organization_id": "~{\"classification\": \"upper\"}",
+    "classification": [
+      "executive-veto"
+    ],
+    "related_entities": []
+  },
+  "bill_id": "S 1023"
+}
