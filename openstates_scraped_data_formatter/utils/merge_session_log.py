@@ -1,9 +1,7 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
-# -------------------------
-# CONFIGURATION (generic)
-# -------------------------
+
 BASE_FOLDER = Path(__file__).resolve().parent
 STATE_FOLDER = BASE_FOLDER.parent
 SESSION_LOG_PATH = STATE_FOLDER / "new_sessions_added.txt"
@@ -28,7 +26,6 @@ def update_session_index(session_index_path: Path, new_entries: dict[str, str]) 
     with open(session_index_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    # Insert before final closing }
     insert_index = next(i for i, line in enumerate(lines) if line.strip() == "}")
 
     for identifier, label in new_entries.items():

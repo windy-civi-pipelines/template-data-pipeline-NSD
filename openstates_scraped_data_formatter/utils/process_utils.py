@@ -1,15 +1,11 @@
 import click
+from typing import Optional
+from pathlib import Path
+from collections.abc import Callable
 from handlers import bill, vote_event, event
 from utils.file_utils import record_error_file
 from utils.interactive import prompt_for_session_fix
-from pathlib import Path
-from collections.abc import Callable
-from typing import Optional
-
-from utils.timestamp_tracker import (
-    write_latest_timestamp_file,
-    LATEST_TIMESTAMP_PATH,
-)
+from utils.timestamp_tracker import write_latest_timestamp_file
 
 
 def count_successful_saves(
@@ -27,7 +23,7 @@ def count_successful_saves(
 def route_handler(
     STATE_ABBR: str,
     filename: str,
-    content: dict,
+    data: dict,
     session_metadata: dict[str, str],
     DATA_NOT_PROCESSED_FOLDER: Path,
     DATA_PROCESSED_FOLDER: Path,
@@ -38,7 +34,7 @@ def route_handler(
     if "bill_" in filename:
         success = bill.handle_bill(
             STATE_ABBR,
-            content,
+            data,
             session_name,
             date_folder,
             DATA_PROCESSED_FOLDER,
@@ -50,7 +46,7 @@ def route_handler(
     elif "vote_event_" in filename:
         success = vote_event.handle_vote_event(
             STATE_ABBR,
-            content,
+            data,
             session_name,
             date_folder,
             DATA_PROCESSED_FOLDER,
@@ -62,7 +58,7 @@ def route_handler(
     elif "event_" in filename:
         success = event.handle_event(
             STATE_ABBR,
-            content,
+            data,
             session_name,
             date_folder,
             DATA_PROCESSED_FOLDER,
@@ -88,12 +84,12 @@ def process_and_save(
     event_count = 0
     vote_event_count = 0
 
-    for filename, content in data:
-        session = content.get("legislative_session")
+    for filename, data in data:
+        session = data.get("legislative_session")
         if not session:
             print(f"⚠️ Skipping {filename}, missing legislative_session")
             record_error_file(
-                DATA_NOT_PROCESSED_FOLDER, "missing_session", filename, content
+                DATA_NOT_PROCESSED_FOLDER, "missing_session", filename, data
             )
             continue
 
@@ -113,14 +109,14 @@ def process_and_save(
 
         if not session_metadata:
             record_error_file(
-                DATA_NOT_PROCESSED_FOLDER, "unknown_session", filename, content
+                DATA_NOT_PROCESSED_FOLDER, "unknown_session", filename, data
             )
             continue
 
         result = route_handler(
             STATE_ABBR,
             filename,
-            content,
+            data,
             session_metadata,
             DATA_NOT_PROCESSED_FOLDER,
             DATA_PROCESSED_FOLDER,

@@ -35,9 +35,9 @@ def link_events_to_bills_pipeline(
     skipped = []
     for event_file in list_json_files(EVENT_ARCHIVE_FOLDER):
         with open(event_file) as f:
-            content = json.load(f)
+            data = json.load(f)
 
-        bill_ids = extract_bill_ids_from_event(content)
+        bill_ids = extract_bill_ids_from_event(data)
         if not bill_ids:
             continue
 
@@ -46,7 +46,7 @@ def link_events_to_bills_pipeline(
             if session_meta:
                 run_handle_event(
                     STATE_ABBR,
-                    content,
+                    data,
                     session_meta["name"],
                     session_meta["date_folder"],
                     DATA_PROCESSED_FOLDER,
@@ -77,10 +77,10 @@ def link_events_to_bills_pipeline(
                 session_meta = bill_to_session.get(bill_id)
                 if session_meta:
                     with open(event_file) as f:
-                        content = json.load(f)
+                        data = json.load(f)
                     run_handle_event(
                         STATE_ABBR,
-                        content,
+                        data,
                         session_meta["name"],
                         session_meta["date_folder"],
                         DATA_PROCESSED_FOLDER,

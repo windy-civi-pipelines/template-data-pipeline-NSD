@@ -2,9 +2,6 @@ import os
 import json
 from pathlib import Path
 from utils.file_utils import record_error_file
-import os
-import json
-from utils.file_utils import record_error_file
 from utils.timestamp_tracker import (
     is_newer_than_latest,
 )

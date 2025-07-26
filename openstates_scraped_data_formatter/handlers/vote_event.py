@@ -1,5 +1,5 @@
-from pathlib import Path
 import json
+from pathlib import Path
 from utils.file_utils import format_timestamp, record_error_file, write_vote_event_log
 from utils.timestamp_tracker import (
     update_latest_timestamp,
@@ -60,7 +60,7 @@ def handle_vote_event(
         VOTE_LATEST_TIMESTAMP = update_latest_timestamp(
             "vote_events", current_dt, VOTE_LATEST_TIMESTAMP
         )
-    # print(f"💬 VOTE TIMESTAMP CHANGED {referenced_bill_id}: {VOTE_LATEST_TIMESTAMP}")
+
     save_path = Path(DATA_PROCESSED_FOLDER).joinpath(
         f"country:us",
         f"state:{STATE_ABBR}",

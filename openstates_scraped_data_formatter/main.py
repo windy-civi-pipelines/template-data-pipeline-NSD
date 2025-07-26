@@ -1,5 +1,5 @@
-from pathlib import Path
 import click
+from pathlib import Path
 from tempfile import mkdtemp
 from utils.io_utils import load_json_files
 from utils.file_utils import ensure_session_mapping
@@ -101,8 +101,6 @@ def main(
     print("Processing summary:")
     print(f"Bills saved: {counts.get('bills', 0)}")
     print(f"Vote events saved: {counts.get('votes', 0)}")
-    # # TO delete later if not needed
-    # print(f"Events saved: {counts.get('events', 0)}")
 
 
 if __name__ == "__main__":
