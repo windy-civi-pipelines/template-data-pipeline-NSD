@@ -3,11 +3,11 @@ from pathlib import Path
 from utils.file_utils import format_timestamp, record_error_file, write_vote_event_log
 from utils.timestamp_tracker import (
     update_latest_timestamp,
-    read_all_latest_timestamps,
+    latest_timestamps,
     to_dt_obj,
 )
 
-VOTE_LATEST_TIMESTAMP = read_all_latest_timestamps().get("vote_events")
+VOTE_LATEST_TIMESTAMP = latest_timestamps["vote_events"]
 print(f"💬 (Vote_event handler) Current latest timestamp: {VOTE_LATEST_TIMESTAMP}")
 
 
