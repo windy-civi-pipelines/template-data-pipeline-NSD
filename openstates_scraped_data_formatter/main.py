@@ -9,6 +9,8 @@ from utils.timestamp_tracker import read_all_latest_timestamps, to_dt_obj
 
 BASE_FOLDER = Path(__file__).parent.parent
 SESSION_MAPPING = {}
+latest_timestamps = read_all_latest_timestamps()
+print(f"💬 Latest timestamps: {latest_timestamps}")
 
 
 @click.command()
@@ -44,9 +46,6 @@ def main(
     # e.g. "113": {"name": "113th Congress", "date_folder": "2013-2015"}
     SESSION_MAPPING_FILE = BASE_FOLDER / "sessions" / f"{STATE_ABBR}.json"
     SESSION_LOG_PATH = DATA_OUTPUT / "new_sessions_added.txt"
-
-    latest_timestamps = read_all_latest_timestamps()
-    print(f"💬 Latest timestamps: {latest_timestamps}")
 
     # 1. Ensure output folders exist
     DATA_PROCESSED_FOLDER.mkdir(parents=True, exist_ok=True)
