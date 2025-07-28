@@ -5,7 +5,6 @@ from tempfile import mkdtemp
 from utils.timestamp_tracker import (
     read_all_latest_timestamps,
     latest_timestamps,
-    to_dt_obj,
 )
 
 read_all_latest_timestamps()
