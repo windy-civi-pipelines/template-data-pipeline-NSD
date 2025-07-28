@@ -16,18 +16,18 @@ latest_timestamps: dict[str, str] = {
 
 
 def read_all_latest_timestamps():
+    global latest_timestamps
     try:
         with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
             raw = json.load(f)
-            return {k: to_dt_obj(v) for k, v in raw.items() if v}
+            latest_timestamps = {k: v for k, v in raw.items() if v}
     except Exception:
         print("⚠️ No timestamp file found or invalid JSON. Using defaults.")
-        return {
-            "bills": datetime(1900, 1, 1),
-            "vote_events": datetime(1900, 1, 1),
-            "events": datetime(1900, 1, 1),
+        latest_timestamps = {
+            "bills": "19000101T000000",
+            "vote_events": "19000101T000000",
+            "events": "19000101T000000",
         }
-
 
 def to_dt_obj(ts_str: str | datetime) -> Optional[datetime]:
     if isinstance(ts_str, datetime):
