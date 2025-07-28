@@ -8,26 +8,11 @@ LATEST_TIMESTAMP_PATH = (
     Path(__file__).resolve().parents[2] / "data_output/latest_timestamp_seen.txt"
 )
 
-latest_timestamps: dict[str, str] = {
-    "bills": "19000101T000000",
-    "vote_events": "19000101T000000",
-    "events": "19000101T000000",
+latest_timestamps: dict[str, datetime] = {
+    "bills": datetime(1900, 1, 1),
+    "vote_events": datetime(1900, 1, 1),
+    "events": datetime(1900, 1, 1),
 }
-
-
-def read_all_latest_timestamps():
-    global latest_timestamps
-    try:
-        with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
-            raw = json.load(f)
-            latest_timestamps = {k: v for k, v in raw.items() if v}
-    except Exception:
-        print("⚠️ No timestamp file found or invalid JSON. Using defaults.")
-        latest_timestamps = {
-            "bills": "19000101T000000",
-            "vote_events": "19000101T000000",
-            "events": "19000101T000000",
-        }
 
 def to_dt_obj(ts_str: str | datetime) -> Optional[datetime]:
     if isinstance(ts_str, datetime):
@@ -42,6 +27,19 @@ def to_dt_obj(ts_str: str | datetime) -> Optional[datetime]:
         print(f"❌ Failed to parse timestamp: {ts_str} ({e})")
         return None
 
+def read_all_latest_timestamps():
+    global latest_timestamps
+    try:
+        with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
+            raw = json.load(f)
+            latest_timestamps = {k: to_dt_obj(v) for k, v in raw.items() if v}
+    except Exception:
+        print("⚠️ No timestamp file found or invalid JSON. Using defaults.")
+        latest_timestamps = {
+            "bills": datetime(1900, 1, 1),
+            "vote_events": datetime(1900, 1, 1),
+            "events": datetime(1900, 1, 1),
+        }
 
 def update_latest_timestamp(
     category: str,
@@ -58,7 +56,6 @@ def update_latest_timestamp(
         return current_dt
 
     return existing_dt
-
 
 def extract_timestamp(data: dict[str, Any], category: str) -> str | None:
     try:
@@ -91,7 +88,6 @@ def extract_timestamp(data: dict[str, Any], category: str) -> str | None:
     except Exception as e:
         return f"ERROR_{category.upper()}_{str(e)}"
 
-
 def is_newer_than_latest(
     data: dict[str, Any],
     latest_timestamp_dt: datetime,
@@ -119,7 +115,7 @@ def is_newer_than_latest(
 
     try:
         current_dt = to_dt_obj(raw_ts)
-        return current_dt > latest_timestamp_dt
+        return current_dt > latest_timestamp_dt if current_dt else False
     except Exception as e:
         print(f"❌ Failed to parse timestamp '{raw_ts}' in {category}: {e}")
         record_error_file(
@@ -131,14 +127,12 @@ def is_newer_than_latest(
         )
         return False
 
-
 def write_latest_timestamp_file():
     try:
         output = {}
         for k, dt in latest_timestamps.items():
-            dt_obj = to_dt_obj(dt) if isinstance(dt, str) else dt
-            if dt_obj:
-                output[k] = dt_obj.strftime("%Y-%m-%dT%H:%M:%S")
+            if isinstance(dt, datetime):
+                output[k] = dt.strftime("%Y-%m-%dT%H:%M:%S")
 
         if not output:
             print("⚠️ No timestamps to write.")
