@@ -45,12 +45,7 @@ def main(
     SESSION_MAPPING_FILE = BASE_FOLDER / "sessions" / f"{STATE_ABBR}.json"
     SESSION_LOG_PATH = DATA_OUTPUT / "new_sessions_added.txt"
 
-    raw_ts = read_all_latest_timestamps()
-    latest_timestamps_dt = {
-        "bills": to_dt_obj(raw_ts.get("bills")),
-        "vote_events": to_dt_obj(raw_ts.get("vote_events")),
-        "events": to_dt_obj(raw_ts.get("events")),
-    }
+    read_all_latest_timestamps()
     print(f"💬 Latest timestamps: {latest_timestamps_dt}")
 
     # 1. Ensure output folders exist
@@ -70,7 +65,6 @@ def main(
         input_folder,
         EVENT_ARCHIVE_FOLDER,
         DATA_NOT_PROCESSED_FOLDER,
-        latest_timestamps_dt,
     )
 
     # 4. Route and process by handler (returns counts)
