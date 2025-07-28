@@ -1,4 +1,4 @@
-# Windy Civi Dta Pipeline template: with scraped data
+# Windy Civi Dta Pipeline template: no saved scraped data
 
 ## A GitHub Actions-powered pipeline that scrapes, cleans, and versions state legislative data from Open States.
 
