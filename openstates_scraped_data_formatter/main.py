@@ -1,13 +1,17 @@
 import click
 from pathlib import Path
 from tempfile import mkdtemp
-from utils.timestamp_tracker import read_all_latest_timestamps, to_dt_obj
-latest_timestamps = read_all_latest_timestamps()
+
+from utils.timestamp_tracker import read_all_latest_timestamps, latest_timestamps, to_dt_obj
+
+read_all_latest_timestamps()
 print(f"💬 Latest timestamps: {latest_timestamps}")
+
 from utils.io_utils import load_json_files
 from utils.file_utils import ensure_session_mapping
 from utils.process_utils import process_and_save
 from postprocessors.event_bill_linker import link_events_to_bills_pipeline
+
 
 
 BASE_FOLDER = Path(__file__).parent.parent
