@@ -32,6 +32,7 @@ def read_all_latest_timestamps():
     try:
         with open(LATEST_TIMESTAMP_PATH, "r", encoding="utf-8") as f:
             raw = json.load(f)
+            print(f"📂 Raw timestamp file contents: {json.dumps(raw, indent=2)}")
             latest_timestamps = {k: to_dt_obj(v) for k, v in raw.items() if v}
     except Exception:
         print("⚠️ No timestamp file found or invalid JSON. Using defaults.")
