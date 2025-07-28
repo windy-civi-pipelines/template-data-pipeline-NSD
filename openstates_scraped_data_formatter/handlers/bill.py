@@ -5,11 +5,11 @@ from utils.file_utils import format_timestamp, record_error_file, write_action_l
 from utils.download_pdf import download_bill_pdf
 from utils.timestamp_tracker import (
     update_latest_timestamp,
-    read_all_latest_timestamps,
+    latest_timestamps,
     to_dt_obj,
 )
 
-BILL_LATEST_TIMESTAMP = read_all_latest_timestamps().get("bills")
+BILL_LATEST_TIMESTAMP = latest_timestamps["bills"]
 print(f"💬 (Bill handler) Current latest timestamp: {BILL_LATEST_TIMESTAMP}")
 
 
