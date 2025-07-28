@@ -2,8 +2,8 @@ name: Update Data
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 1 * * *" # every day at 1am UTC
+  # schedule:
+  #   - cron: "0 1 * * *" # every day at 1am UTC
 
 env:
   STATE: id # <-- update this value per state repo, e.g. il, tx, ny, etc.
