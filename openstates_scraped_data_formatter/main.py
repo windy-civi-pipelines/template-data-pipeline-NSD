@@ -2,7 +2,11 @@ import click
 from pathlib import Path
 from tempfile import mkdtemp
 
-from utils.timestamp_tracker import read_all_latest_timestamps, latest_timestamps, to_dt_obj
+from utils.timestamp_tracker import (
+    read_all_latest_timestamps,
+    latest_timestamps,
+    to_dt_obj,
+)
 
 read_all_latest_timestamps()
 print(f"💬 Latest timestamps: {latest_timestamps}")
@@ -12,11 +16,8 @@ from utils.file_utils import ensure_session_mapping
 from utils.process_utils import process_and_save
 from postprocessors.event_bill_linker import link_events_to_bills_pipeline
 
-
-
 BASE_FOLDER = Path(__file__).parent.parent
 SESSION_MAPPING = {}
-
 
 
 @click.command()
