@@ -65,11 +65,6 @@ jobs:
           pipenv run python main.py --state $STATE --input-folder $FORMATTER_INPUT_FOLDER
           cd ${{ github.workspace }} || exit 1
 
-      - name: Copy Scraped Data to Repo
-        run: |
-          mkdir -p "$GITHUB_WORKSPACE/_data/$STATE"
-          cp -r "${RUNNER_TEMP}/_working/_data/$STATE"/* "$GITHUB_WORKSPACE/_data/$STATE/"
-
       - name: Update Repo
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -79,6 +74,6 @@ jobs:
           git fetch origin main
           git pull origin main --rebase || true
 
-          git add _data data_output bill_session_mapping sessions
+          git add data_output bill_session_mapping sessions
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Automated report update (report dated ${{ steps.get-date.outputs.date }})"
           git push || echo "⚠️ Git push failed — possibly due to upstream changes."
