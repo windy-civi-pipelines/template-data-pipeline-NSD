@@ -22,7 +22,90 @@ jobs:
     steps:
       - uses: windy-civi/opencivicdata-blockchain-transformer@bill-text-extraction
         with:
-           state: usa
+           state: wy # UPDATE STATE HERE
            github-token: ${{ secrets.GITHUB_TOKEN }}
            use-scrape-cache: ${{ inputs.use-scrape-cache }}
            force-update: ${{ inputs.force-update }}
+      
+      # Zip the data first to avoid path issues
+      - name: Zip processed data
+        run: |
+          cd data_output
+          zip -r processed-data.zip data_processed/
+      
+      # Upload the zip file instead
+      - name: Upload processed data
+        uses: actions/upload-artifact@v4
+        with:
+          name: processed-data
+          path: data_output/processed-data.zip
+          retention-days: 1
+
+  extract-bill-text:
+    name: Extract Bill Text
+    runs-on: ubuntu-latest
+    needs: update-data
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: windy-civi/opencivicdata-blockchain-transformer
+          ref: bill-text-extraction
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      # Download and extract the zip file
+      - name: Download processed data
+        uses: actions/download-artifact@v4
+        with:
+          name: processed-data
+          path: data_output/
+      
+      - name: Extract processed data
+        run: |
+          cd data_output
+          unzip processed-data.zip
+      
+      # Add metadata structure debug step
+      - name: Debug metadata structure
+        run: |
+          python openstates_scraped_data_formatter/debug_metadata_structure.py
+      
+      # Add debug step before extraction
+      - name: Debug data structure (before extraction)
+        run: |
+          python openstates_scraped_data_formatter/debug_extraction.py
+      
+      - name: Extract Bill Text
+        run: |
+          python openstates_scraped_data_formatter/extract_bill_text.py \
+            --processed-folder ./data_output/data_processed \
+            --batch-size 10
+      
+      # Add debug step after extraction
+      - name: Debug data structure (after extraction)
+        run: |
+          python openstates_scraped_data_formatter/debug_extraction.py
+      
+      - name: Checkout local repo
+        uses: actions/checkout@v4
+      
+      # Commit and push the extracted text files to the same repository
+      - name: Commit extracted text files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data_output/data_processed/
+          git commit -m "Add extracted bill text files" || echo "No changes to commit"
+          git push origin HEAD
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
